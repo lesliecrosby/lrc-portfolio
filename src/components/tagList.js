@@ -24,19 +24,19 @@ class TagList extends Component {
             padding: 2px 0.45rem;
             border-radius: 4px;
             border: 1px solid ${colors.grey200};
-            border-bottom: 2px solid ${colors.teal};
+            border-bottom: 2px solid ${colors.sage};
             margin-bottom: 0.5rem;
             &:before {
               content: "#";
               margin-right: 2px;
               font-weight: bold;
-              color: ${colors.teal};
+              color: ${colors.sage};
             }
           }
         `}
       >
         {this.props.tags.map(tag => (
-          <li>{tag}</li>
+          <li key={tag.id}>{tag}</li>
         ))}
       </ul>
     )

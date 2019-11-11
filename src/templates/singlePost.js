@@ -8,6 +8,9 @@ import Layout from "../components/layout"
 import Article from "../components/article"
 import SEO from "../components/seo"
 import BlogComments from "../components/comments"
+import {
+  container
+} from "../components/global-styles"
 
 class SingleBlog extends Component {
   render() {
@@ -25,24 +28,12 @@ class SingleBlog extends Component {
         />
         <div
           css={css`
-            max-width: 900px;
-            padding: 3rem 0;
-            margin: auto;
-            @media (min-width: 650px) {
-              padding: 3rem;
-            }
+            ${container}
           `}
         >
           <h1
             dangerouslySetInnerHTML={{ __html: post.title }}
-            css={css`
-              font-size: 2.5rem;
-              text-align: center;
-              margin-bottom: 3rem;
-              @media (min-width: 650px) {
-                font-size: 4rem;
-              }
-            `}
+            className="page-title"
           />
           <Article>{parse(post.content)}</Article>
         </div>

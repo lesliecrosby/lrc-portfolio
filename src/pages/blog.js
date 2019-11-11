@@ -9,6 +9,8 @@ import {
   boxShadow,
   buttonPrimary,
   colors,
+  container,
+  // fonts,
   orderedListStyles,
   underline,
 } from "../components/global-styles"
@@ -22,25 +24,23 @@ class BlogIndex extends Component {
         <SEO title="Blog" />
         <div
           css={css`
-            max-width: 900px;
+            /* max-width: 900px;
             padding: 3rem 0;
             margin: auto;
             @media (min-width: 650px) {
               padding: 3rem;
-            }
+            } */
+            ${container}
           `}
         >
           <h1
-            css={css`
-              text-align: center;
-              margin-bottom: 3rem;
-              font-size: 4rem;
-            `}
+            className="page-title"
           >
             Blog
           </h1>
           {data.allWordpressPost.edges.map(({ node }) => (
             <div
+              key={node.id}
               css={css`
                 background: ${colors.white};
                 padding: 3rem;
@@ -52,16 +52,16 @@ class BlogIndex extends Component {
                   text-decoration: none;
                   ${underline(
                     colors.white,
-                    colors.salmon,
-                    colors.salmon,
+                    colors.coral,
+                    colors.coral,
                     "100%",
                     "2px"
                   )}
                   &:hover {
                     ${underline(
                       colors.white,
-                      colors.teal,
-                      colors.teal,
+                      colors.sage,
+                      colors.sage,
                       "100%",
                       "2px"
                     )}
@@ -84,7 +84,7 @@ class BlogIndex extends Component {
                   background: ${colors.grey200};
                   padding: 1.5rem;
                   border-radius: 4px;
-                  border-left: 4px solid ${colors.teal};
+                  border-left: 4px solid ${colors.sage};
                   font-style: italic;
                   margin: 2rem;
                 }
@@ -133,6 +133,7 @@ export const pageQuery = graphql`
     allWordpressPost(sort: { fields: [date], order: DESC }) {
       edges {
         node {
+          id
           title
           excerpt
           slug

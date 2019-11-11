@@ -11,7 +11,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { css } from "@emotion/core"
 
 import Header from "./header"
-import "./layout.css"
+import Footer from "./footer"
+// import { breakpoints } from "../components/global-styles"
+// import "./layout.css"
+import "../styles/styles.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,23 +33,25 @@ const Layout = ({ children }) => {
       <div
         css={css`
           margin: 0 auto;
-          max-width: 1200px;
-          padding: 0px 1.0875rem 6rem;
+          /* max-width: 1200px; */
+          /* padding: 0px 1.0875rem 6rem; */
           padding-top: 0;
           flex-grow: 1;
           width: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          @media (min-width: 650px) {
-            padding-bottom: 1.5rem;
-          }
+          align-items: stretch;
+          justify-content: flex-start;
         `}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Leslie R Crosby
-        </footer>
+        <main
+          css={css`
+            flex: 1 1 auto;
+          `}
+        >
+          {children}
+        </main>
+        <Footer siteTitle={data.site.siteMetadata.title} />
       </div>
     </>
   )

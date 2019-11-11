@@ -1,52 +1,56 @@
 import React, { Component } from "react"
 import { css } from "@emotion/core"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
+// import ReactFullpage from '@fullpage/react-fullpage'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
+// import { colors, container, fonts } from "../components/global-styles"
 
 class Projects extends Component {
+
   render() {
     const data = this.props.data
+
+    // const { fullpages } = this.state;
+
+    // if (!fullpages.length) {
+    //   return null;
+    // }
 
     return (
       <Layout>
         <SEO title="Recent Projects" />
         <h1
-          css={css`
-            text-align: center;
-            /* margin: 3rem auto; */
-            /* font-size: 4rem; */
-          `}
+          className="page-title"
         >
           Projects
         </h1>
-        <div
-          css={css`
-            max-width: 900px;
-            padding: 0 0 3rem;
-            margin: 0 auto;
-            article + article {
-              margin-top: 3rem;
-            }
-            @media (min-width: 650px) {
-              padding: 0 3rem 3rem;
-            }
-          `}
-        >
+        {/* <ReactFullpage
+          licenseKey={'OPEN-SOURCE-GPLV3-LICENSE'}
+          navigation
+          anchors={['x', 'y', 'z']}
+          sectionSelector={SECTION_SELECTOR}
+          onLeave={this.onLeave.bind(this)}
+
+        /> */}
+        <div className="projects-list">
           {data.allWordpressWpProjects.edges.map(({ node }) => (
             <Card
               title={node.title}
               description={node.excerpt}
               target={`projects/${node.slug}`}
-              // tags={node.tags.map(tag => tag.name)}
+              key={node.id}
+              tags={node.tags.map(tag => tag.name)}
+              image={node.featured_media.localFile.childImageSharp.fluid}
+              imageAlt={node.featured_media.alt_text}
             >
-              <Img
+              {/* <Img
                 alt={node.featured_media.alt_text}
                 fluid={node.featured_media.localFile.childImageSharp.fluid}
-              />
+              /> */}
             </Card>
           ))}
         </div>
@@ -62,19 +66,20 @@ export const pageQuery = graphql`
     allWordpressWpProjects(sort: { fields: [date], order: DESC }) {
       edges {
         node {
+          id
           title
           excerpt
           slug
-          # tags {
-          #   id
-          #   name
-          # }
+          tags {
+            id
+            name
+          }
           featured_media {
             source_url
             alt_text
             localFile {
               childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 250) {
+                fluid(maxWidth: 1024) {
                   ...GatsbyImageSharpFluid
                 }
               }

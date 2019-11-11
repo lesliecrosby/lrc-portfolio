@@ -1,69 +1,86 @@
 import React, { Component } from "react"
 import { css } from "@emotion/core"
 import { Link } from "gatsby"
-import { colors, underline } from "../components/global-styles"
-// import TagList from "./tagList"
+import {
+  colors,
+  } from "../components/global-styles"
+import Desktop from "./desktop"
 
 class Card extends Component {
   render() {
     return (
       <article
         css={css`
-          background: ${colors.white};
+          background-color: ${colors.dusk};
+          padding: 80px 0;
           @media (min-width: 650px) {
             display: flex;
+            /* height: 100vh; */
+            position: relative;
           }
         `}
       >
         <section
           css={css`
-            border-bottom: 1px solid ${colors.grey200};
-            @media (min-width: 650px) {
-              border-right: 1px solid ${colors.grey200};
-              border-bottom: none;
-              min-width: 400px;
-            }
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
           `}
         >
-          <Link to={this.props.target}>{this.props.children}</Link>
+          <Link
+            to={this.props.target}
+            css={css`
+              flex: 1 1 auto;
+            `}
+          >
+            {this.props.children}
+            <Desktop imageAlt={this.props.imageAlt} image={this.props.image} />
+          </Link>
+
         </section>
         <section
           css={css`
-            padding: 2rem;
+            padding: 2rem 7.5%;
             display: flex;
             flex-direction: column;
             justify-items: center;
+            color: ${colors.white};
+            @media (min-width: 650px) {
+              position: absolute;
+              width: 50%;
+              height: 100%;
+              top: 0;
+              right: 0;
+              background-color: ${colors.lightdusk}70;
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+            }
           `}
         >
-          <h2>
+          <h2 className="h6">
             <Link
               to={this.props.target}
               css={css`
                 text-decoration: none;
-                ${underline(
-                  colors.white,
-                  colors.salmon,
-                  colors.salmon,
-                  "94%",
-                  "3px"
-                )}
-                &:hover {
-                  ${underline(
-                    colors.white,
-                    colors.teal,
-                    colors.teal,
-                    "94%",
-                    "3px"
-                  )}
-                }
               `}
               href="#"
             >
               {this.props.title}
             </Link>
           </h2>
-          <p dangerouslySetInnerHTML={{ __html: this.props.description }} />
+          <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
           {/* <TagList tags={this.props.tags} /> */}
+          <ul
+            css={css`
+
+            `}
+          >
+            {this.props.tags.map(tag => (
+              <li key={tag.id}>{tag}</li>
+            ))}
+          </ul>
         </section>
       </article>
     )

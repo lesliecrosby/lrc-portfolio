@@ -5,7 +5,21 @@ export const colors = {
   grey500: "#7c7c7c",
   grey800: "#333",
   teal: "#a8dcd1",
-  salmon: "#ff8585",
+
+  coral: "#E16F56",
+  lightcoral: "#F08A7C",
+//   sage: "#889891",
+  sage: "#86a99a",
+//   lightsage: "#A7B9B4",
+  lightsage: "#9db9b1",
+  dusk: "#857E8C",
+  lightdusk: "#9196A7",
+}
+
+//TODO: consider making more like this: https://github.com/bchiang7/v4/blob/master/src/styles/media.js
+export const breakpoints = {
+    mobile: '650px',
+    huge: '1440px',
 }
 
 export const container = `
@@ -13,7 +27,7 @@ export const container = `
     margin-left: auto;
     margin-right: auto;
     @media (min-width: 768px) {
-        width: 80%;
+        width: 75%;
         max-width: 1180px;
     }
 `
@@ -23,23 +37,30 @@ export const boxShadow = `
 `
 
 export const buttonPrimary = `
-  background-color: ${colors.salmon};
-  border: none;
+  background-color: ${colors.lightcoral};
+  border: 0;
+  border-bottom: 4px solid ${colors.coral};
+  border-radius: 3px;
   box-shadow: none;
   text-shadow: none;
   color: ${colors.white};
   text-transform: uppercase;
+  letter-spacing: 1px;
   font-size: 0.9rem;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  padding: 0.8rem 1.5rem;
-  border-radius: 3px;
-  letter-spacing: 1px;
+  padding: 0.8rem 1.5rem 0.6rem;
+  cursor: pointer;
+  transition: background-color 250ms ease, border 250ms ease;
   &:disabled {
     background: ${colors.grey300};
+    cursor: default;
   }
   &:focus {
     outline: none;
+  }
+  &:hover {
+    background-color: ${colors.coral};
+    border-bottom: 4px solid ${colors.lightcoral};
   }
 `
 
@@ -51,7 +72,7 @@ export const formField = `
   border-bottom: 3px solid ${colors.grey200};
   &:focus {
     outline: none;
-    border-bottom: 3px solid ${colors.teal};
+    border-bottom: 3px solid ${colors.sage};
   }
 `
 
@@ -64,7 +85,7 @@ export const orderedListStyles = `
           margin-bottom: 5px;
           padding-left: 2rem;
           &:before {
-              background: ${colors.teal};
+              background: ${colors.sage};
               content: counter(item);
               border-radius: 100%;
               display: inline-block;
@@ -86,7 +107,7 @@ export const unorderedListStyles = `
         > li {
             padding-left: 2rem;
             &:before {
-                background-color: ${colors.salmon};
+                background-color: ${colors.coral};
                 border-radius: 50%;
                 content: '';
                 display: inline-block;
@@ -103,10 +124,17 @@ export const unorderedListStyles = `
 export const fonts = {
   quicksand: '"Quicksand", sans-serif',
   roboto: '"Roboto", sans-serif',
-  robotocondensed: '"Roboto Condensed", sans-serif',
+  robotoCondensed: '"Roboto Condensed", sans-serif',
+  montserrat: '"Montserrat", sans-serif',
 }
 
-export const underline = (background, text, selection, position, width) => `
+export const underline = (
+    background,
+    text,
+    selection,
+    position,
+    width
+) => `
     color: inherit;
     text-decoration: none;
     background: linear-gradient(${background}, ${background}),

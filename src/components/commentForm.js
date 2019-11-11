@@ -4,7 +4,7 @@ import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 
 import {
-  fonts,
+  // fonts,
   colors,
   buttonPrimary,
   formField,
@@ -38,7 +38,7 @@ class CommentForm extends Component {
       <div
         css={css`
           background: ${colors.white};
-          border-top: 5px solid ${colors.salmon};
+          border-top: 5px solid ${colors.coral};
           padding: 2rem;
           margin-top: 2rem;
           margin-bottom: 2rem;
@@ -48,10 +48,8 @@ class CommentForm extends Component {
       >
         <div
           css={css`
-            font-size: 2.4rem;
             font-weight: bold;
-            color: ${colors.salmon};
-            font-family: ${fonts.quicksand};
+            color: ${colors.coral};
             margin-bottom: 1.5rem;
           `}
         >
@@ -104,7 +102,7 @@ class CommentForm extends Component {
                   margin-top: 1rem;
                 }
                 .error {
-                  color: ${colors.salmon};
+                  color: ${colors.coral};
                   font-size: 0.7rem;
                   margin-top: 2px;
                   font-style: italic;
@@ -180,7 +178,7 @@ class CommentForm extends Component {
                 }
                 css={css`
                   ${buttonPrimary}
-                  background-color: ${colors.teal};
+                  /* background-color: ${colors.sage}; */
                   margin-top: 2rem;
               `}
               >

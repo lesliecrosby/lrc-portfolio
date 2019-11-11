@@ -7,6 +7,7 @@ module.exports = {
     title: `Leslie R Crosby`,
     description: `Front-End Developer and Design Liason`,
     author: `@roberl54`,
+    siteUrl: `http://lesliercrosby.local`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,6 +21,16 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        useResolveUrlLoader: {
+          options: {
+            sourceMap: true, //default is false
+          },
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -112,7 +123,7 @@ module.exports = {
           jwt_user: process.env.JWT_USER,
           jwt_pass: process.env.JWT_PASSWORD,
         },
-        verboseOutput: true,
+        verboseOutput: false,
         keepMediaSizes: false,
         // use a custom normalizer which is applied after the built-in ones. (Map custom taxonomies to cpts)
         // normalizer: function({ entities }) {

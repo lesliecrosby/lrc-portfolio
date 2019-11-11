@@ -1,0 +1,12 @@
+.hamburger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:focus {
+    outline: none;
+  }
+}
+.hamburger-label {
+  margin-right: 5px;
+  position: relative;
+}

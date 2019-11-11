@@ -29,7 +29,7 @@ class SingleComment extends Component {
               font-size: 1.5rem;
               margin-bottom: 0.2rem;
               a {
-                color: ${colors.salmon};
+                color: ${colors.coral};
                 text-decoration: none;
               }
             `}

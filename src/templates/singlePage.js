@@ -3,13 +3,16 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { css } from "@emotion/core"
 import parse from "html-react-parser"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import Article from "../components/article"
 import SEO from "../components/seo"
 // import TagList from "../components/tagList"
-import { colors } from "../components/global-styles"
+import {
+  colors,
+  container
+  } from "../components/global-styles"
 
 class SinglePage extends Component {
   render() {
@@ -26,33 +29,22 @@ class SinglePage extends Component {
         />
         <div
           css={css`
-            max-width: 900px;
-            padding: 3rem 0;
-            margin: auto;
-            @media (min-width: 650px) {
-              padding: 3rem;
-            }
+            ${container}
           `}
         >
           <h1
-            dangerouslySetInnerHTML={{ __html: page.title }}
-            css={css`
-              margin-bottom: 3rem;
-              font-size: 2.5rem;
-              text-align: center;
-              @media (min-width: 650px) {
-                font-size: 4rem;
-              }
-            `}
-          />
+            className="page-title"
+          >
+            { page.title }
+          </h1>
           <section>
-            <Img
+            {/* <Img
               alt={page.featured_media.alt_text}
               fluid={page.featured_media.localFile.childImageSharp.fluid}
               css={css`
                 border-bottom: 1px solid ${colors.grey300};
               `}
-            />
+            /> */}
           </section>
           <section
             css={css`
