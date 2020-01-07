@@ -18,22 +18,22 @@ export const colors = {
 
 //TODO: consider making more like this: https://github.com/bchiang7/v4/blob/master/src/styles/media.js
 export const breakpoints = {
-    mobile: '650px',
-    huge: '1440px',
+  mobile: '650px',
+  huge: '1440px',
 }
 
 export const container = `
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    @media (min-width: 768px) {
-        width: 75%;
-        max-width: 1180px;
-    }
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 768px) {
+      width: 75%;
+      max-width: 1080px;
+  }
 `
 
 export const boxShadow = `
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
 `
 
 export const buttonPrimary = `
@@ -78,47 +78,47 @@ export const formField = `
 
 export const orderedListStyles = `
   ol {
-      list-style: none;
-      counter-reset: item;
-      > li {
-          counter-increment: item;
-          margin-bottom: 5px;
-          padding-left: 2rem;
-          &:before {
-              background: ${colors.sage};
-              content: counter(item);
-              border-radius: 100%;
-              display: inline-block;
-              color: ${colors.white};
-              margin-left: -1.9rem;
-              margin-right: 10px;
-              font-size: 0.8rem;
-              font-weight: bold;
-              text-align: center;
-              width: 1.2rem;
-          }
+    list-style: none;
+    counter-reset: item;
+    > li {
+      counter-increment: item;
+      margin-bottom: 5px;
+      padding-left: 2rem;
+      &:before {
+        background: ${colors.sage};
+        content: counter(item);
+        border-radius: 100%;
+        display: inline-block;
+        color: ${colors.white};
+        margin-left: -1.9rem;
+        margin-right: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-align: center;
+        width: 1.2rem;
       }
+    }
   }
 `
 
 export const unorderedListStyles = `
-    ul {
-        list-style: none;
-        > li {
-            padding-left: 2rem;
-            &:before {
-                background-color: ${colors.coral};
-                border-radius: 50%;
-                content: '';
-                display: inline-block;
-                width: 8px;
-                height: 8px;
-                margin-left: -1.3rem;
-                margin-right: 0.8rem;
-                margin-bottom: 0.2rem;
-            }
-        }
+  ul {
+    list-style: none;
+    > li {
+      padding-left: 2rem;
+      &:before {
+        background-color: ${colors.coral};
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: -1.3rem;
+        margin-right: 0.8rem;
+        margin-bottom: 0.2rem;
+      }
     }
+  }
 `
 
 export const fonts = {
@@ -165,47 +165,3 @@ export const underline = (
         text-shadow: none;
     }
 `
-
-export const cssTriangle = (
-  color,
-  direction,
-  size = "6px",
-  position = "absolute"
-) => {
-  let css = `
-        display: block;
-        content: '';
-        position: ${position};
-        width: 0;
-        height: 0;`
-  if (direction === "down") {
-    css += `
-        border-left: ${size} solid transparent;
-        border-right: ${size} solid transparent;
-        border-top: ${size} solid ${color};
-        margin-top: 0 - round(${size} / 2.5);
-        `
-  } else if (direction === "up") {
-    css += `
-        border-left: ${size} solid transparent;
-        border-right: ${size} solid transparent;
-        border-bottom: ${size} solid ${color};
-        margin-bottom: 0 - round(${size} / 2.5);
-        `
-  } else if (direction === "right") {
-    css += `
-        border-top: ${size} solid transparent;
-        border-bottom: ${size} solid transparent;
-        border-left: ${size} solid ${color};
-        margin-right: -${size};
-        `
-  } else if (direction === "left") {
-    css += `
-        border-top: ${size} solid transparent;
-        border-bottom: ${size} solid transparent;
-        border-right: ${size} solid ${color};
-        margin-left: -${size};
-        `
-  }
-  return css
-}

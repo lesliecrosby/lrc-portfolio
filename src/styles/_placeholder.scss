@@ -1,0 +1,64 @@
+&::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    left: 0;
+    top: -120px;
+    background-color: $lightcoral;
+  }
+
+  &::after {
+    top: auto;
+    bottom: -120px;
+  }
+
+  .cta__top,
+  .cta__bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    // overflow: hidden;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 120px;
+      transform: skew(0deg, 12deg);
+      transform-origin: right;
+      background-color: $lightsage;
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+      transform: skew(0deg, -12deg);
+      transform-origin: left;
+    }
+  }
+
+  .cta__bottom {
+    top: auto;
+    bottom: 0;
+
+    &::before,
+    &::after {
+      top: auto;
+      bottom: 0;
+      transform: skew(0deg, -12deg);
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+      transform: skew(0deg, 12deg);
+      transform-origin: left;
+    }
+  }

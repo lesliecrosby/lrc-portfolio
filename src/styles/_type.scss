@@ -35,7 +35,7 @@ h1, .h1 {
 }
 h2, .h2 {
   // 28px
-  font-size: 1.75em;
+  font-size: 1.55em;
   text-transform: uppercase;
   letter-spacing: 0.1875em;
   margin-bottom: 1.25rem;
@@ -71,8 +71,39 @@ p {
   margin-bottom: 1.25rem;
 }
 
-.page-title {
+.button {
+  background-color: $lightcoral;
+  border: 0;
+  border-bottom: 4px solid $coral;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem 0.6rem;
+  cursor: pointer;
+  transition: background-color 250ms ease, border 250ms ease;
+  &:disabled {
+    background: $grey300;
+    cursor: default;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: $coral;
+    border-bottom: 4px solid $lightcoral;
+  }
+}
+
+.section__title {
   text-align: center;
+  padding: 2rem;
+
   @media (min-width: 650px) {
     padding: 80px 0 50px;
   }

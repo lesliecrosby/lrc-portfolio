@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Img from "gatsby-image"
+
 import { css } from "@emotion/core"
 import {
   breakpoints,
@@ -13,15 +14,17 @@ class Desktop extends Component {
         css={css`
           width: 90%;
           height: auto;
-          padding-top: 50%;
+          padding-top: 56.25%;
           background-color: ${colors.grey800};
           border: 2vw solid ${colors.grey800};
           border-radius: 1rem;
           position: relative;
           left: -10%;
           overflow: hidden;
+          z-index: 1;
           @media (min-width: ${breakpoints.mobile}) {
             width: 80%;
+            padding-top: 50%;
             left: -20%;
           }
         `}
@@ -41,7 +44,6 @@ class Desktop extends Component {
           />
         </div>
       </div>
-
     )
   }
 }

@@ -6,7 +6,7 @@ import { css } from "@emotion/core"
 // import Hamburger from "./hamburger"
 import {
   breakpoints,
-  // colors,
+  colors,
   container,
   // fonts
   } from "../components/global-styles"
@@ -54,10 +54,11 @@ class Header extends Component {
           ${container}
           padding: 1.45rem 0;
           display: flex;
+          align-items: center;
           justify-content: space-between;
 
           @media (min-width: ${breakpoints.mobile}) {
-            justify-content: space-between;
+            align-items: flex-end;
           }
         `}
         >
@@ -88,12 +89,14 @@ class Header extends Component {
               transition: left 250ms ease;
               left: ${this.state.menuOpen ? '50%' : '100%'};
               display: flex;
+              background-color: ${colors.lightcoral};
               /* display: ${this.state.menuOpen ? 'flex' : 'none'}; */
               @media (min-width: ${breakpoints.mobile}) {
                 display: block;
                 position: static;
                 height: auto;
                 width: auto;
+                background-color: transparent;
               }
             `}
           >
@@ -106,25 +109,28 @@ class Header extends Component {
                 padding: 0;
                 margin: 0;
                 & li {
-                  margin-left: 1rem;
-                  margin-bottom: 0;
+                  margin-left: 1.2rem;
+                  margin-bottom: 2rem;
                 }
                 & a {
                   text-decoration: none;
                 }
                 @media (min-width: ${breakpoints.mobile}) {
                   flex-direction: row;
+                  & li {
+                    margin-bottom: 0;
+                  }
                 }
               `}
             >
               <li>
-                <Link to="/about-me/">About</Link>
+                <Link to="/about-me/">About Me</Link>
+              </li>
+              <li>
+                <Link to="/experience/">Experience</Link>
               </li>
               <li>
                 <Link to="/projects/">Projects</Link>
-              </li>
-              <li>
-                <Link to="/blog/">Blog</Link>
               </li>
             </ul>
           </nav>

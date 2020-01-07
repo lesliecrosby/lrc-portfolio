@@ -3,7 +3,6 @@ import { css } from "@emotion/core"
 
 import {
   colors,
-  cssTriangle,
 } from "../components/global-styles"
 
 class SingleComment extends Component {
@@ -20,13 +19,14 @@ class SingleComment extends Component {
       <li
         key={comment.id}
         css={css`
-          margin-top: 3rem;
+          margin-top: 2rem;
+          margin-bottom: 2rem;
         `}
       >
         <div>
           <h3
+            className="h5"
             css={css`
-              font-size: 1.5rem;
               margin-bottom: 0.2rem;
               a {
                 color: ${colors.coral};
@@ -46,15 +46,7 @@ class SingleComment extends Component {
           </p>
           <div
             css={css`
-              background-color: ${colors.white};
-              margin-top: 30px;
-              padding: 2rem;
-              line-height: 1.8;
-              color: ${colors.grey500};
-              &::before {
-                ${cssTriangle(colors.white, "up", "20px", "relative")}
-                top: calc(-2rem - 20px);
-              }
+              color: ${colors.grey800};
             `}
             dangerouslySetInnerHTML={{ __html: comment.content }}
           />

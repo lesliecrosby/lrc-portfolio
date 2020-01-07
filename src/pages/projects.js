@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { css } from "@emotion/core"
+// import { css } from "@emotion/core"
 import { graphql } from "gatsby"
 // import Img from "gatsby-image"
 // import ReactFullpage from '@fullpage/react-fullpage'
@@ -23,19 +23,16 @@ class Projects extends Component {
     return (
       <Layout>
         <SEO title="Recent Projects" />
-        <h1
-          className="page-title"
-        >
-          Projects
-        </h1>
-        {/* <ReactFullpage
-          licenseKey={'OPEN-SOURCE-GPLV3-LICENSE'}
-          navigation
-          anchors={['x', 'y', 'z']}
-          sectionSelector={SECTION_SELECTOR}
-          onLeave={this.onLeave.bind(this)}
+        <section className="section__title">
+          <div className="container">
+            <h1
+              className="page-title"
+            >
+              Projects
+            </h1>
+          </div>
+        </section>
 
-        /> */}
         <div className="projects-list">
           {data.allWordpressWpProjects.edges.map(({ node }) => (
             <Card

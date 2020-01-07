@@ -6,7 +6,7 @@ import * as Yup from "yup"
 import {
   // fonts,
   colors,
-  buttonPrimary,
+  // buttonPrimary,
   formField,
 } from "../components/global-styles"
 
@@ -177,8 +177,6 @@ class CommentForm extends Component {
                     : false
                 }
                 css={css`
-                  ${buttonPrimary}
-                  /* background-color: ${colors.sage}; */
                   margin-top: 2rem;
               `}
               >

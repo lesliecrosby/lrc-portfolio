@@ -7,7 +7,8 @@ class CommentWrapper extends Component {
       <ol
         css={css`
           list-style: none;
-          margin-left: 2rem;
+          margin-left: 3rem;
+          padding-left: 0;
         `}
       >
         {this.props.children}

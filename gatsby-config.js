@@ -107,7 +107,7 @@ module.exports = {
       options: {
         baseUrl: 'lesliercrosby.local',
         hostingWPCOM: false,
-        protocol: 'http',
+        protocol: 'https',
         useACF: true,
         // includedRoutes: [
         //   "**/categories",

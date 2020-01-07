@@ -1,16 +1,16 @@
 import { React, Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+// import { css } from "@emotion/core"
 import parse from "html-react-parser"
 
 import Layout from "../components/layout"
 import Article from "../components/article"
 import SEO from "../components/seo"
 import BlogComments from "../components/comments"
-import {
-  container
-} from "../components/global-styles"
+// import {
+//   container
+// } from "../components/global-styles"
 
 class SingleBlog extends Component {
   render() {
@@ -18,25 +18,25 @@ class SingleBlog extends Component {
     const comments = this.props.data.allWordpressWpComments
     return (
       <Layout>
-        {/* <SEO
-          title={post.yoast_meta.yoast_wpseo_title}
-          description={post.yoast_meta.yoast_wpseo_metadesc}
-        /> */}
         <SEO
           title={post.title}
           description={post.excerpt}
         />
-        <div
-          css={css`
-            ${container}
-          `}
-        >
-          <h1
-            dangerouslySetInnerHTML={{ __html: post.title }}
-            className="page-title"
-          />
-          <Article>{parse(post.content)}</Article>
-        </div>
+        <section className="section__title">
+          <div className="container">
+            <h1
+              dangerouslySetInnerHTML={{ __html: post.title }}
+              className="page-title"
+            />
+          </div>
+        </section>
+
+        <section>
+          <div className="container">
+            <Article>{parse(post.content)}</Article>
+          </div>
+        </section>
+
         <BlogComments comments={comments} post={post} />
       </Layout>
     )
@@ -58,10 +58,6 @@ export const pageQuery = graphql`
       content
       excerpt
       date
-      # yoast_meta {
-      #   yoast_wpseo_title
-      #   yoast_wpseo_metadesc
-      # }
     }
     allWordpressWpComments(filter: { post: { eq: $postId } }) {
       edges {

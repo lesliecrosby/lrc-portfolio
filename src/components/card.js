@@ -2,9 +2,11 @@ import React, { Component } from "react"
 import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import {
+  breakpoints,
   colors,
   } from "../components/global-styles"
 import Desktop from "./desktop"
+import base from "../images/base.svg"
 
 class Card extends Component {
   render() {
@@ -36,6 +38,20 @@ class Card extends Component {
           >
             {this.props.children}
             <Desktop imageAlt={this.props.imageAlt} image={this.props.image} />
+            <img
+              src={base}
+              alt="desktop base illustration"
+              css={css`
+                width: 33.33%;
+                position: relative;
+                top: -3vw;
+                left: 10%;
+                @media (min-width: ${breakpoints.mobile}) {
+                  width: 30%;
+                  left: 0;
+                }
+              `}
+            />
           </Link>
 
         </section>
@@ -53,9 +69,11 @@ class Card extends Component {
               top: 0;
               right: 0;
               background-color: ${colors.lightdusk}70;
+              padding: 2rem 10% 2rem 12.5%;
               display: flex;
               justify-content: center;
               align-items: flex-start;
+              z-index: 1;
             }
           `}
         >
@@ -71,14 +89,14 @@ class Card extends Component {
             </Link>
           </h2>
           <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
-          {/* <TagList tags={this.props.tags} /> */}
           <ul
             css={css`
-
+              list-style: none;
+              padding-left: 0;
             `}
           >
-            {this.props.tags.map(tag => (
-              <li key={tag.id}>{tag}</li>
+            {this.props.tags.map(({tag}, i) => (
+              <li key={i}>{tag}</li>
             ))}
           </ul>
         </section>

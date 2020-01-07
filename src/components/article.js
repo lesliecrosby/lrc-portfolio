@@ -4,6 +4,7 @@ import { css } from "@emotion/core"
 import {
   boxShadow,
   colors,
+  container,
   orderedListStyles,
   unorderedListStyles,
   underline,
@@ -23,6 +24,7 @@ class Article extends Component {
           @media (min-width: 650px) {
             padding: 3rem;
           }
+          ${container}
           a {
             color: ${colors.grey800};
             text-decoration: none;

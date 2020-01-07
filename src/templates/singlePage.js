@@ -8,10 +8,9 @@ import parse from "html-react-parser"
 import Layout from "../components/layout"
 import Article from "../components/article"
 import SEO from "../components/seo"
-// import TagList from "../components/tagList"
 import {
-  colors,
-  container
+  // colors,
+  // container
   } from "../components/global-styles"
 
 class SinglePage extends Component {
@@ -19,24 +18,18 @@ class SinglePage extends Component {
     const page = this.props.data.wordpressPage
     return (
       <Layout>
-        {/* <SEO
-          title={page.yoast_meta.yoast_wpseo_title}
-          description={page.yoast_meta.yoast_wpseo_metadesc}
-        /> */}
         <SEO
           title={page.title}
           description={page.excerpt}
         />
-        <div
-          css={css`
-            ${container}
-          `}
-        >
-          <h1
-            className="page-title"
-          >
-            { page.title }
-          </h1>
+
+        <section className="section__title">
+          <div className="container">
+            <h1 className="page-title">{ page.title }</h1>
+          </div>
+        </section>
+
+        <div className="container">
           <section>
             {/* <Img
               alt={page.featured_media.alt_text}
@@ -45,16 +38,6 @@ class SinglePage extends Component {
                 border-bottom: 1px solid ${colors.grey300};
               `}
             /> */}
-          </section>
-          <section
-            css={css`
-              background: ${colors.white};
-              display: flex;
-              justify-content: center;
-              padding-top: 3rem;
-            `}
-          >
-            {/* <TagList tags={page.tags.map(tag => tag.name)} /> */}
           </section>
           <Article>{parse(page.content)}</Article>
         </div>
@@ -76,14 +59,6 @@ export const pageQuery = graphql`
       title
       content
       date
-      # tags {
-      #   id
-      #   name
-      # }
-      # yoast_meta {
-      #   yoast_wpseo_title
-      #   yoast_wpseo_metadesc
-      # }
       featured_media {
         source_url
         alt_text

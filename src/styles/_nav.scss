@@ -1,5 +1,6 @@
 .hamburger {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
   &:focus {
@@ -7,6 +8,7 @@
   }
 }
 .hamburger-label {
-  margin-right: 5px;
+  margin: 5px 0 0;
   position: relative;
+  font-size: 0.8em;
 }
