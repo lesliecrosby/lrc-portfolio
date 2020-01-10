@@ -132,6 +132,9 @@ class Header extends Component {
               <li>
                 <Link to="/projects/">Projects</Link>
               </li>
+              <li>
+                <Link to="#">Resume</Link>
+              </li>
             </ul>
           </nav>
 

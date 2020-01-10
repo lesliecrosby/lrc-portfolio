@@ -4,15 +4,16 @@ import { Link } from "gatsby"
 import {
   breakpoints,
   colors,
-  } from "../components/global-styles"
+  } from "./global-styles"
 import Desktop from "./desktop"
 import base from "../images/base.svg"
 
-class Card extends Component {
+class ProjectSlide extends Component {
   render() {
     return (
       <article
         css={css`
+          height: 100vh;
           background-color: ${colors.dusk};
           padding: 80px 0;
           @media (min-width: 650px) {
@@ -105,4 +106,4 @@ class Card extends Component {
   }
 }
 
-export default Card
+export default ProjectSlide
