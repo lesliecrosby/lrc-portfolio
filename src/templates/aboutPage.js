@@ -31,7 +31,6 @@ class AboutPage extends Component {
           </div>
         </section>
 
-
         <section className="section__bio triangles triangles--coral">
           <div className="container"
             css={css`

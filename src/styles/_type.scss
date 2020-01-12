@@ -6,12 +6,15 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-size: 100%;
+  color: $black;
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Montserrat", sans-serif;
+  // font-family:
+  //   "LT Tofino Regular",
+  //   "Montserrat", sans-serif;
   line-height: 1.5;
 }
 h1, .h1,

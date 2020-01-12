@@ -1,6 +1,7 @@
 body {
-  background-color: white;
+  background-color: $white;
 }
+
 #___gatsby > div {
   display: flex;
   flex-direction: column;
@@ -197,9 +198,15 @@ body {
   }
 
   h2 {
-    color: #000;
-    margin-bottom: 1rem;
+    font-weight: 600;
+    color: $black;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
     transition: color 200ms ease;
+  }
+
+  h3 {
+    color: $coral;
   }
 
   h4 {
@@ -207,7 +214,7 @@ body {
   }
 
   .description {
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
   }
 }

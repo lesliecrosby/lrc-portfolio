@@ -46,6 +46,7 @@
     "html-react-parser": "^0.6.3",
     "prettier": "^1.18.2",
     "resolve-url-loader": "^3.1.0",
+    "styled-components": "^4.4.1",
     "typescript": "^3.6.4",
     "yup": "^0.26.10"
   },

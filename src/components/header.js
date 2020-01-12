@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import { React, Component } from "react"
 import { Link } from "gatsby"
-// import PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import { css } from "@emotion/core"
 
 // import Hamburger from "./hamburger"
@@ -41,6 +41,7 @@ class Header extends Component {
   };
 
   render() {
+    // const page = this.props.data.wordpressPage
     return (
       <header
         css={css`
@@ -124,16 +125,21 @@ class Header extends Component {
               `}
             >
               <li>
-                <Link to="/about-me/">About Me</Link>
-              </li>
-              <li>
                 <Link to="/experience/">Experience</Link>
               </li>
               <li>
                 <Link to="/projects/">Projects</Link>
               </li>
               <li>
-                <Link to="#">Resume</Link>
+                {/* <a
+                  href={page.acf.resume.url.localFile.publicURL}
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Resume
+                </a> */}
+                <Link to="/experience/">Resume</Link>
               </li>
             </ul>
           </nav>
@@ -163,12 +169,24 @@ class Header extends Component {
   }
 }
 
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+}
 
 export default Header
+
+// export const pageQuery = graphql`
+//   query {
+//     wordpressPage(title: {eq: "Experience"}) {
+//       acf {
+//         resume {
+//           url {
+//             localFile {
+//               publicURL
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
