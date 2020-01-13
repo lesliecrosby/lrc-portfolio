@@ -21,6 +21,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-plugin-sass",
       options: {

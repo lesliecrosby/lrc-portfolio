@@ -1,5 +1,9 @@
 import { React, Component } from "react"
-import { Link } from "gatsby"
+import {
+  Link,
+  // StaticQuery,
+  // graphql
+} from "gatsby"
 import PropTypes from "prop-types"
 import { css } from "@emotion/core"
 
@@ -39,6 +43,17 @@ class Header extends Component {
       this.toggleMenu();
     }
   };
+
+  // <StaticQuery
+  //   query={graphql`
+  //     query HeadingQuery {
+  //       site {
+  //         siteMetadata {
+  //           title
+  //         }
+  //       }
+  //     }
+  //   `}
 
   render() {
     // const page = this.props.data.wordpressPage
@@ -175,7 +190,7 @@ Header.propTypes = {
 
 export default Header
 
-// export const pageQuery = graphql`
+// export const staticQuery = graphql`
 //   query {
 //     wordpressPage(title: {eq: "Experience"}) {
 //       acf {
