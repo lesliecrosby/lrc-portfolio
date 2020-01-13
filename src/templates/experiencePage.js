@@ -1,19 +1,15 @@
 import { React, Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
-// import { Link } from "gatsby"
+import styled from "styled-components"
 import parse from "html-react-parser"
-// import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-// import Article from "../components/article"
 import SEO from "../components/seo"
-import {
-  // colors,
-  // container
-  } from "../components/global-styles"
 
+const JobFacts = styled.div`
+  text-align: right;
+`
 class ExperiencePage extends Component {
   render() {
     const page = this.props.data.wordpressPage
@@ -47,12 +43,10 @@ class ExperiencePage extends Component {
 
                 <h3 className="h5">{job.job_title}</h3>
                 <div className="description">{parse(job.description)}</div>
-                <div css={css`
-                text-align: right;
-                `}>
+                <JobFacts>
                   <h4 className="h6">{job.dates}</h4>
                   <h4 className="h6">{job.location}</h4>
-                </div>
+                </JobFacts>
 
               </div>
             </div>

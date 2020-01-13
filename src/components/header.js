@@ -1,19 +1,92 @@
 import { React, Component } from "react"
-import {
-  Link,
-  // StaticQuery,
-  // graphql
-} from "gatsby"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 
-// import Hamburger from "./hamburger"
 import {
   breakpoints,
   colors,
   container,
-  // fonts
-  } from "../components/global-styles"
+} from "../components/global-styles"
+
+const HeaderOuter = styled.header`
+  position: relative;
+  z-index: 100;
+  overflow: ${props => (props.menuOpen ? 'visible' : 'hidden' )};
+  /* overflow: ${this.state.menuOpen ? 'visible' : 'hidden'}; */
+`
+
+const HeaderInner = styled.div`
+  ${container}
+  padding: 1.45rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    align-items: flex-end;
+  }
+`
+
+const NavMenu = styled.nav`
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  transition: left 250ms ease;
+  left: ${props => (props.menuOpen ? 'visible' : 'hidden')};
+  /* left: ${this.state.menuOpen ? '50%' : '100%'}; */
+  display: flex;
+  background-color: ${colors.lightcoral};
+  /* display: ${this.state.menuOpen ? 'flex' : 'none'}; */
+  @media (min-width: ${breakpoints.mobile}) {
+    display: block;
+    position: static;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+  }
+`
+
+const NavList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  & li {
+    margin-left: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  & a {
+    text-decoration: none;
+  }
+  @media (min-width: ${breakpoints.mobile}) {
+    flex-direction: row;
+    & li {
+      margin-bottom: 0;
+    }
+  }
+`
+
+const LogoLink = styled(Link)`
+  font-size: 1.5rem;
+  text-shadow: none;
+  text-decoration: none;
+`
+
+const Hamburger = styled.button`
+  display: flex;
+  /* TODO: GET RID OF THIS IMPORTANT! ! */
+  @media (min-width: ${breakpoints.mobile}) {
+    display: none !important;
+  }
+`
 
 class Header extends Component {
 
@@ -44,101 +117,19 @@ class Header extends Component {
     }
   };
 
-  // <StaticQuery
-  //   query={graphql`
-  //     query HeadingQuery {
-  //       site {
-  //         siteMetadata {
-  //           title
-  //         }
-  //       }
-  //     }
-  //   `}
+
 
   render() {
-    // const page = this.props.data.wordpressPage
     return (
-      <header
-        css={css`
-          position: relative;
-          z-index: 100;
-          overflow: ${this.state.menuOpen ? 'visible' : 'hidden'};
-        `}
-      >
-        <div
-          css={css`
-          ${container}
-          padding: 1.45rem 0;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+      <HeaderOuter>
+        <HeaderInner>
 
-          @media (min-width: ${breakpoints.mobile}) {
-            align-items: flex-end;
-          }
-        `}
-        >
-          <div>
-            <Link
-              to="/"
-              css={css`
-                font-size: 1.5rem;
-                text-shadow: none;
-                text-decoration: none;
-              `}
-            >
-              { this.props.siteTitle }
-              {/* Leslie R Crosby */}
-            </Link>
-          </div>
+          <LogoLink to="/">
+            { this.props.siteTitle }
+          </LogoLink>
 
-          <nav
-            css={css`
-              position: absolute;
-              top: 0;
-              width: 50%;
-              height: 100vh;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              background: white;
-              transition: left 250ms ease;
-              left: ${this.state.menuOpen ? '50%' : '100%'};
-              display: flex;
-              background-color: ${colors.lightcoral};
-              /* display: ${this.state.menuOpen ? 'flex' : 'none'}; */
-              @media (min-width: ${breakpoints.mobile}) {
-                display: block;
-                position: static;
-                height: auto;
-                width: auto;
-                background-color: transparent;
-              }
-            `}
-          >
-            <ul
-              css={css`
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0;
-                margin: 0;
-                & li {
-                  margin-left: 1.2rem;
-                  margin-bottom: 2rem;
-                }
-                & a {
-                  text-decoration: none;
-                }
-                @media (min-width: ${breakpoints.mobile}) {
-                  flex-direction: row;
-                  & li {
-                    margin-bottom: 0;
-                  }
-                }
-              `}
-            >
+          <NavMenu>
+            <NavList>
               <li>
                 <Link to="/experience/">Experience</Link>
               </li>
@@ -146,40 +137,28 @@ class Header extends Component {
                 <Link to="/projects/">Projects</Link>
               </li>
               <li>
-                {/* <a
-                  href={page.acf.resume.url.localFile.publicURL}
-                  href="#"
+                <a
+                  href={this.props.resumeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  Resume
-                </a> */}
-                <Link to="/experience/">Resume</Link>
+                  >Resume</a>
               </li>
-            </ul>
-          </nav>
+            </NavList>
+          </NavMenu>
 
-          <button
+          <Hamburger
           className={`hamburger hamburger--collapse hamburger--accessible js-hamburger ${this.state.menuOpen ? 'is-active' : ''}`}
           type="button"
           onClick={this.toggleMenu}
-          css={css`
-            display: flex;
-            @media (min-width: ${breakpoints.mobile}) {
-              display: none;
-            }
-          `}
           >
             <span className="hamburger-label">Menu</span>
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
             </span>
-          </button>
+          </Hamburger>
 
-          {/* <Hamburger menuOpen={menuOpen} toggleMenu={this.toggleMenu} /> */}
-
-        </div>
-      </header>
+        </HeaderInner>
+      </HeaderOuter>
     )
   }
 }
@@ -189,19 +168,3 @@ Header.propTypes = {
 }
 
 export default Header
-
-// export const staticQuery = graphql`
-//   query {
-//     wordpressPage(title: {eq: "Experience"}) {
-//       acf {
-//         resume {
-//           url {
-//             localFile {
-//               publicURL
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `

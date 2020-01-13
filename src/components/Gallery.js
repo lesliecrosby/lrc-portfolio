@@ -1,36 +1,40 @@
 import React, { Component } from "react"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 // import { Link } from "gatsby"
 import {
   container,
   } from "../components/global-styles"
 
+const Section = styled.section`
+  ${container}
+`
+
+const GalleryWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const GalleryImage = styled.img`
+  flex: 1 1 50%;
+  width: 50%;
+  object-fit: cover;
+  padding: 10px;
+`
+
 class Gallery extends Component {
   render() {
     return (
-
-        <section css={css`
-          ${container}
-        `}>
-          <div css={css`
-            display: flex;
-            flex-wrap: wrap;
-          `}>
+        <Section>
+          <GalleryWrap>
             {this.props.images.map(image => (
-              <img
+              <GalleryImage
                 src={image.localFile.childImageSharp.fluid.src}
                 alt={image.alt_text}
                 key={image.wordpress_id}
-                css={css`
-                  flex: 1 1 50%;
-                  width: 50%;
-                  object-fit: cover;
-                  padding: 10px;
-                `}
               />
             ))}
-          </div>
-        </section>
+          </GalleryWrap>
+        </Section>
     )
   }
 }

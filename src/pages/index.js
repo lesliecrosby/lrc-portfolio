@@ -1,7 +1,6 @@
 import { React, Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-// import { css } from "@emotion/core"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import parse from "html-react-parser"

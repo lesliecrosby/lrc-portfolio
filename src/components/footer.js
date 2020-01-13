@@ -1,51 +1,49 @@
 import React from "react"
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 
 import {
-  breakpoints,
   colors,
-  // container,
   } from "../components/global-styles"
 
+const SiteFooter = styled.footer`
+  background-color: ${colors.black};
+  color: ${colors.white};
+`
+
+const FooterInner = styled.div`
+  padding: 1.45rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const SocialsList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+
+  li {
+    width: 20px;
+    margin-right: 10px;
+  }
+  svg {
+    fill: ${colors.sage}
+  }
+`
+
+const Credit = styled.div`
+  font-size: 0.75rem;
+`
+
 const Footer = ({ siteTitle }) => (
-  <footer
-    css={css`
-      background-color: #111;
-      color: ${colors.white};
-    `}
-  >
-    <div
-      className="container"
-      css={css`
-        padding: 1.45rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @media (min-width: ${breakpoints.mobile}) {
-
-        }
-      `}
-    >
-      <ul
-        css={css`
-          list-style: none;
-          padding-left: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 0;
-
-          li {
-            width: 20px;
-            margin-right: 10px;
-          }
-          svg {
-            fill: ${colors.sage}
-          }
-        `}
-      >
+  <SiteFooter>
+    <FooterInner className="container">
+      <SocialsList>
         <li>
           <a
             href="https://www.linkedin.com/in/leslie-r-crosby-42181332/"
@@ -92,17 +90,13 @@ const Footer = ({ siteTitle }) => (
           </a>
         </li>
 
-      </ul>
-      <div
-        css={css`
-          font-size: 0.75rem;
-        `}
-      >
+      </SocialsList>
+      <Credit>
         © {new Date().getFullYear()}, Leslie R Crosby
-      </div>
+      </Credit>
 
-    </div>
-  </footer>
+    </FooterInner>
+  </SiteFooter>
 )
 
 Footer.propTypes = {

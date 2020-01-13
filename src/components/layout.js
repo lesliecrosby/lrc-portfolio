@@ -8,7 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-// import { Global, css } from "@emotion/core"
 import styled, { createGlobalStyle } from "styled-components"
 
 // import "./fonts.css"
@@ -45,8 +44,19 @@ const Layout = ({ children }) => {
           title
         }
       }
+      wordpressPage(title: {eq: "Experience"}) {
+        acf {
+          resume {
+            url {
+              localFile {
+                publicURL
+              }
+            }
+          }
+        }
+      }
     }
-  `)
+`)
 
   return (
     <>
@@ -55,7 +65,7 @@ const Layout = ({ children }) => {
       <link rel="prefetch" href="../fonts/wide/TofinoProPersonalWide-Regular.woff2"/>
       <link rel="prefetch" href="../fonts/cond/TofinoProPersonalCond-Regular.woff2"/>
       <link rel="prefetch" href="../fonts/text/TofinoProPersonalText-Regular.woff2"/> */}
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} resumeLink={data.wordpressPage.acf.resume.url.localFile.publicURL}/>
       <GlobalStyle />
       <SiteWrap>
         <Main>
