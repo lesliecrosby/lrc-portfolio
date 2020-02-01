@@ -42,7 +42,7 @@ class BlogIndex extends Component {
         <section>
           <div className="container">
             {data.allWordpressPost.edges.map(({ node }) => (
-              <div
+              <Post
                 key={node.id}
               >
                 <Link to={`blog/${node.slug}`}>
@@ -57,7 +57,7 @@ class BlogIndex extends Component {
                     Continue Reading
                   </button>
                 </Link>
-              </div>
+              </Post>
             ))}
           </div>
         </section>
