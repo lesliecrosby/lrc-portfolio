@@ -4,7 +4,7 @@ import styled from "styled-components"
 import {
   breakpoints,
   colors,
-  } from "../components/global-styles"
+  } from "./global-styles"
 
 const Frame = styled.div`
   width: 90%;
@@ -31,6 +31,7 @@ const ImageWrap = styled.div`
   top: 0;
   left: 0;
 `
+
 class Desktop extends Component {
   render() {
     return (

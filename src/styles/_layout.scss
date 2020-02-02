@@ -31,7 +31,7 @@ body {
   article:nth-of-type(n + 1) {
     background-color: $sage;
     section:nth-of-type(2) {
-      @media (min-width: 650px) {
+      @media (min-width: $mobile) {
         background-color: rgba($lightsage, 0.7);
       }
     }
@@ -39,7 +39,7 @@ body {
   article:nth-of-type(n + 2) {
     background-color: $coral;
     section:nth-of-type(2) {
-      @media (min-width: 650px) {
+      @media (min-width: $mobile) {
         background-color: rgba($lightcoral, 0.8);
       }
     }

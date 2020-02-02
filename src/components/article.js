@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import {
   boxShadow,
+  breakpoints,
   colors,
   container,
   orderedListStyles,
@@ -15,7 +16,7 @@ const ArticleContent = styled.article`
   padding: 1.5rem;
   font-size: 1.1rem;
   line-height: 1.6;
-  @media (min-width: 650px) {
+  @media (min-width: ${breakpoints.mobile}) {
     padding: 3rem;
   }
   ${container}

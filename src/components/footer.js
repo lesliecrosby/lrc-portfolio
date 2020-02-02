@@ -10,6 +10,7 @@ import {
 const SiteFooter = styled.footer`
   background-color: ${colors.black};
   color: ${colors.white};
+  position: relative;
 `
 
 const FooterInner = styled.div`
