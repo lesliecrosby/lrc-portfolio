@@ -1,4 +1,4 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
@@ -7,12 +7,12 @@ import {
   breakpoints,
   colors,
   container,
-} from "../components/global-styles"
+} from "./global-styles"
 
 const HeaderOuter = styled.header`
   position: relative;
   z-index: 100;
-  overflow: ${props => (props.menuOpen ? 'visible' : 'hidden' )};
+  /* overflow: ${(props) => props.menuOpen ? 'visible' : 'hidden' }; */
   /* overflow: ${this.state.menuOpen ? 'visible' : 'hidden'}; */
 `
 
@@ -38,7 +38,7 @@ const NavMenu = styled.nav`
   align-items: center;
   background: white;
   transition: left 250ms ease;
-  left: ${props => (props.menuOpen ? 'visible' : 'hidden')};
+  left: ${(props) => props.menuOpen ? '50%' : '100%'};
   /* left: ${this.state.menuOpen ? '50%' : '100%'}; */
   display: flex;
   background-color: ${colors.lightcoral};
@@ -56,7 +56,7 @@ const NavList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0;
   margin: 0;
   & li {
@@ -68,6 +68,7 @@ const NavList = styled.ul`
   }
   @media (min-width: ${breakpoints.mobile}) {
     flex-direction: row;
+    align-items: flex-end;
     & li {
       margin-bottom: 0;
     }
@@ -92,11 +93,13 @@ class Header extends Component {
 
   constructor(props) {
     super(props);
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+
     this.state = {
       menuOpen: false,
       isMounted: false,
     };
-    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   componentDidMount() {
@@ -117,31 +120,32 @@ class Header extends Component {
     }
   };
 
-
-
   render() {
     return (
-      <HeaderOuter>
+      <HeaderOuter menuOpen={this.state.menuOpen}>
         <HeaderInner>
 
           <LogoLink to="/">
             { this.props.siteTitle }
           </LogoLink>
 
-          <NavMenu>
+          <NavMenu menuOpen={this.state.menuOpen}>
             <NavList>
               <li>
-                <Link to="/experience/">Experience</Link>
+                <Link to="/">About Me</Link>
               </li>
               <li>
-                <Link to="/projects/">Projects</Link>
+                <Link to="/experience">Experience</Link>
+              </li>
+              <li>
+                <Link to="/projects">Projects</Link>
               </li>
               <li>
                 <a
                   href={this.props.resumeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Resume</a>
+                  >PDF Resume</a>
               </li>
             </NavList>
           </NavMenu>

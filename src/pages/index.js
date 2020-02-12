@@ -1,4 +1,4 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
@@ -7,8 +7,8 @@ import parse from "html-react-parser"
 import Img from "gatsby-image"
 import diamond from "../images/diamond.svg"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 
 import {
   breakpoints
@@ -27,6 +27,9 @@ const Bio = styled.div`
   margin: 2rem 0;
   @media (min-width: ${breakpoints.mobile}) {
     margin: 0 0 0 2rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin: 0 0 0 4rem;
   }
 `
 const Headshot = styled(Img)`

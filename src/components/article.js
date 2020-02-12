@@ -9,10 +9,9 @@ import {
   orderedListStyles,
   unorderedListStyles,
   underline,
-} from "../components/global-styles"
+} from "./global-styles"
 
 const ArticleContent = styled.article`
-  background: ${colors.white};
   padding: 1.5rem;
   font-size: 1.1rem;
   line-height: 1.6;

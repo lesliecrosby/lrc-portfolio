@@ -32,61 +32,61 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allWordpressPost } }) => {
-              return allWordpressPost.edges.map(edge => {
-                return Object.assign(
-                  {},
-                  {
-                    title: edge.node.title,
-                    description: edge.node.excerpt,
-                    date: edge.node.date,
-                    url: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
-                    guid: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
-                  }
-                )
-              })
-            },
-            query: `
-              {
-                allWordpressPost(sort: { fields: [date], order: DESC }) {
-                  edges {
-                    node {
-                      title
-                      excerpt
-                      slug
-                    }
-                  }
-                }
-                site {
-                  siteMetadata {
-                    title
-                  }
-                }
-              }
-            `,
-            output: "/rss.xml",
-            title: "Leslie R Crosby - RSS Feed",
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allWordpressPost } }) => {
+    //           return allWordpressPost.edges.map(edge => {
+    //             return Object.assign(
+    //               {},
+    //               {
+    //                 title: edge.node.title,
+    //                 description: edge.node.excerpt,
+    //                 date: edge.node.date,
+    //                 url: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
+    //                 guid: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
+    //               }
+    //             )
+    //           })
+    //         },
+    //         query: `
+    //           {
+    //             allWordpressPost(sort: { fields: [date], order: DESC }) {
+    //               edges {
+    //                 node {
+    //                   title
+    //                   excerpt
+    //                   slug
+    //                 }
+    //               }
+    //             }
+    //             site {
+    //               siteMetadata {
+    //                 title
+    //               }
+    //             }
+    //           }
+    //         `,
+    //         output: "/rss.xml",
+    //         title: "Leslie R Crosby - RSS Feed",
+    //       },
+    //     ],
+    //   },
+    // },
     `gatsby-plugin-polished`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -103,7 +103,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-        {
+    {
       resolve: 'gatsby-source-wordpress',
       options: {
         baseUrl: 'lesliercrosby.local',

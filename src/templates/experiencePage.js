@@ -4,8 +4,20 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import parse from "html-react-parser"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+import {
+  breakpoints
+  } from "../components/global-styles"
+
+const BioContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  @media (min-width: ${breakpoints.mobile}) {
+    flex-direction: row;
+  }
+`
 
 const JobFacts = styled.div`
   text-align: right;
@@ -20,10 +32,16 @@ class ExperiencePage extends Component {
           description={page.excerpt}
         />
 
-        <section className="section__title triangles">
+        <section className="section__title">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
           </div>
+        </section>
+
+        <section className="section__bio triangles triangles--sage">
+          <BioContainer className="container">
+          {parse( page.content ) }
+          </BioContainer>
         </section>
 
         {page.acf.job &&

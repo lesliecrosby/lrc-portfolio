@@ -1,6 +1,7 @@
 export const colors = {
   white: "#ffffff",
   black: "#323232",
+  cream: "#FFF7F0",
   grey200: "#f4f7f6",
   grey300: "#e0e4e3",
   grey500: "#7c7c7c",
@@ -19,9 +20,10 @@ export const colors = {
   lightdusk: "#9196A7",
 }
 
-//TODO: consider making more like this: https://github.com/bchiang7/v4/blob/master/src/styles/media.js
 export const breakpoints = {
   mobile: '650px',
+  desktop: '1024px',
+  large: '1200px',
   huge: '1440px',
 }
 
@@ -30,8 +32,8 @@ export const container = `
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 768px) {
-      width: 75%;
-      max-width: 1080px;
+    width: 75%;
+    max-width: 1080px;
   }
 `
 

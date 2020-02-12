@@ -1,5 +1,10 @@
 body {
-  background-color: $white;
+  background-color: $cream;
+}
+
+::selection {
+  color: $cream;
+  background-color: $sage;
 }
 
 #___gatsby > div {
@@ -29,15 +34,31 @@ body {
 
 .projects-list {
   article:nth-of-type(n + 1) {
-    background-color: $sage;
+    background-color: $dusk;
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
-        background-color: rgba($lightsage, 0.7);
+        background-color: rgba($lightdusk, 0.8);
       }
     }
   }
   article:nth-of-type(n + 2) {
+    background-color: $sage;
+    section:nth-of-type(2) {
+      @media (min-width: $mobile) {
+        background-color: rgba($lightsage, 0.8);
+      }
+    }
+  }
+  article:nth-of-type(n + 3) {
     background-color: $coral;
+    .button {
+      background-color: $lightdusk;
+      border-bottom: 4px solid $dusk;
+      &:hover {
+        background-color: $dusk;
+        border-bottom: 4px solid $lightdusk;
+      }
+    }
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
         background-color: rgba($lightcoral, 0.8);
@@ -267,9 +288,9 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -180px;
+    bottom: -240px;
     width: 50%;
-    height: 180px;
+    height: 240px;
     transform: skew(0deg, 12deg);
     transform-origin: right;
     background-color: $lightsage;

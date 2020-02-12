@@ -10,7 +10,7 @@
     "@fullpage/react-fullpage": "^0.1.16",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.17.7",
+    "gatsby": "^2.0.0",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-emotion": "^4.1.13",
     "gatsby-plugin-feed": "^2.3.19",

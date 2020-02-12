@@ -1,5 +1,6 @@
 $white: #ffffff;
 $black: #323232;
+$cream: #FFF7F0;
 $grey200: #f4f7f6;
 $grey300: #e0e4e3;
 $grey500: #7c7c7c;
@@ -65,6 +66,12 @@ $lightdusk: #9196A7;
 }
 .white-bg {
   background-color: $white;
+}
+.cream {
+  color: $cream;
+}
+.cream-bg {
+  background-color: $cream;
 }
 
 $mobile: 650px;

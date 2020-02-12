@@ -7,15 +7,14 @@ import parse from "html-react-parser"
 import Img from "gatsby-image"
 import diamond from "../images/diamond.svg"
 
-import Layout from "../components/layout"
-// import Article from "../components/article"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+// import Article from "../components/Article"
+import SEO from "../components/Seo"
 import {
-  // colors,
   breakpoints
   } from "../components/global-styles"
 
-  const BioContainer = styled.div`
+const BioContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -24,17 +23,21 @@ import {
   }
 `
 
-const Bio = styled.div`
-  margin: 2rem 0;
-  @media (min-width: ${breakpoints.mobile}) {
-    margin: 0 0 0 2rem;
-  }
-`
 const Headshot = styled(Img)`
   flex: 0 0 210px;
   width: 210px;
   height: 210px;
   border-radius: 50%;
+`
+
+const Bio = styled.div`
+  margin: 2rem 0;
+  @media (min-width: ${breakpoints.mobile}) {
+    margin: 0 0 0 2rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin: 0 0 0 4rem;
+  }
 `
 
 class AboutPage extends Component {

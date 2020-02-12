@@ -1,12 +1,12 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import parse from "html-react-parser"
 // import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import Article from "../components/article"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import Article from "../components/Article"
+import SEO from "../components/Seo"
 import {
   // colors,
   // container
@@ -33,9 +33,6 @@ class SinglePage extends Component {
             {/* <Img
               alt={page.featured_media.alt_text}
               fluid={page.featured_media.localFile.childImageSharp.fluid}
-              css={css`
-                border-bottom: 1px solid ${colors.grey300};
-              `}
             /> */}
           </section>
           <Article>{parse(page.content)}</Article>

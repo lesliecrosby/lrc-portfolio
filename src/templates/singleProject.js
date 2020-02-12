@@ -1,15 +1,15 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
 // import { Link } from "gatsby"
-import Layout from "../components/layout"
-import Article from "../components/article"
+import Layout from "../components/Layout"
+import Article from "../components/Article"
 import Gallery from "../components/Gallery"
-import SEO from "../components/seo"
-// import TagList from "../components/tagList"
+import SEO from "../components/Seo"
+// import TagList from "../components/TagList"
 
 import {
   colors,

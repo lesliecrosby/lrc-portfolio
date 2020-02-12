@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import styled from "styled-components"
+// import styled from "styled-components"
 import {
   // CSSTransition,
   TransitionGroup
@@ -7,27 +7,27 @@ import {
 import { graphql } from "gatsby"
 // import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 import ProjectSlide from "../components/ProjectSlide"
 
-const ScrollIndicators = styled.aside`
-  position: fixed;
-  z-index: 1000;
-  width: 40px;
-  height: 100%;
-  top: 0;
-  right: 0;
+// const ScrollIndicators = styled.aside`
+//   position: fixed;
+//   z-index: 1000;
+//   width: 40px;
+//   height: 100%;
+//   top: 0;
+//   right: 0;
 
-  & ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: centers;
-  }
-`
+//   & ul {
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: centers;
+//   }
+// `
 
 class Projects extends Component {
 
@@ -61,6 +61,7 @@ class Projects extends Component {
     return (
       <Layout>
         <SEO title="Recent Projects" />
+
         <section className="section__title">
           <div className="container">
             <h1 className="page-title">
@@ -83,7 +84,7 @@ class Projects extends Component {
           ))}
         </TransitionGroup>
 
-        <ScrollIndicators>
+        {/* <ScrollIndicators>
           <TransitionGroup component="ul">
             {data.allWordpressWpProjects.edges.map(({ node, i }) => (
               <li
@@ -92,7 +93,7 @@ class Projects extends Component {
               </li>
             ))}
           </TransitionGroup>
-        </ScrollIndicators>
+        </ScrollIndicators> */}
       </Layout>
     )
   }

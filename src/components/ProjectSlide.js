@@ -6,46 +6,86 @@ import {
   breakpoints,
   colors,
   } from "./global-styles"
-// import Desktop from "./Desktop"
 import base from "../images/base.svg"
 
 const ProjectItem = styled.article`
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${colors.dusk};
   padding: 80px 0;
+  overflow: hidden;
+
   @media (min-width: ${breakpoints.mobile}) {
+    height: 100vh;
     display: flex;
-    /* height: 100vh; */
+    justify-content: center;
+    align-items: center;
     position: relative;
   }
 `
 
 const ProjectPreview = styled.section`
   width: 100%;
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
+`
 
-  /* & > a {
-    flex: 1 1 auto;
-  } */
+const ProjectLink = styled(Link)`
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const Desktop = styled.div`
+  position: relative;
+  left: -10%;
+  overflow: hidden;
   width: 90%;
   height: auto;
   padding-top: 56.25%;
   background-color: ${colors.grey800};
   border: 2vw solid ${colors.grey800};
   border-radius: 1rem;
-  position: relative;
-  left: -10%;
-  overflow: hidden;
   z-index: 1;
-  @media (min-width: ${breakpoints.mobile}) {
+
+   @media (min-width: ${breakpoints.mobile}) {
     width: 80%;
     padding-top: 50%;
-    left: -20%;
+    left: auto;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 60%;
+    padding-top: 37.5%;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    width: 50%;
+    padding-top: 31.25%
+  }
+`
+
+const DesktopBase = styled.img`
+  position: relative;
+  width: 33.33%;
+  top: -3vw;
+  margin-bottom: -3vw;
+  left: 17.5%;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    /* width: 22.5%; */
+    width: 30%;
+    left: auto;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 22.5%;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    width: 18.75%;
   }
 `
 
@@ -57,23 +97,12 @@ const ImageWrap = styled.div`
   left: 0;
 `
 
-const PreviewImage = styled.img`
-  width: 33.33%;
-  position: relative;
-  top: -3vw;
-  margin-bottom: -3vw;
-  left: 10%;
-  @media (min-width: ${breakpoints.mobile}) {
-    width: 30%;
-    left: 0;
-  }
-`
-
 const ProjectInfo = styled.section`
   padding: 2rem 7.5%;
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  align-items: flex-start;
+  justify-content: center;
   color: ${colors.white};
   @media (min-width: ${breakpoints.mobile}) {
     position: absolute;
@@ -84,8 +113,6 @@ const ProjectInfo = styled.section`
     background-color: ${colors.lightdusk}70;
     padding: 2rem 10% 2rem 12.5%;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     z-index: 1;
   }
 `
@@ -100,9 +127,8 @@ class ProjectSlide extends Component {
     return (
       <ProjectItem>
         <ProjectPreview>
-          <Link to={this.props.target}>
+          <ProjectLink to={this.props.target}>
             {this.props.children}
-            {/* <Desktop imageAlt={this.props.imageAlt} image={this.props.image} /> */}
 
             <Desktop>
               <ImageWrap>
@@ -113,18 +139,16 @@ class ProjectSlide extends Component {
               </ImageWrap>
             </Desktop>
 
-            <PreviewImage
+            <DesktopBase
               src={base}
               alt="desktop base illustration"
             />
-          </Link>
+          </ProjectLink>
         </ProjectPreview>
 
         <ProjectInfo>
-          <h2 className="h6">
-            <Link to={this.props.target}>
-              {this.props.title}
-            </Link>
+          <h2 className="h3">
+            {this.props.title}
           </h2>
           <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
           <TagList>
@@ -132,6 +156,7 @@ class ProjectSlide extends Component {
               <li key={i}>{tag}</li>
             ))}
           </TagList>
+          <Link to={this.props.target} className="button button--sm">View Project</Link>
         </ProjectInfo>
       </ProjectItem>
     )

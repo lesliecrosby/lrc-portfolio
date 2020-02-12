@@ -1,14 +1,58 @@
 import React, { Component } from "react"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 
 import {
-  // fonts,
   colors,
-  // buttonPrimary,
   formField,
 } from "../components/global-styles"
+
+const FormWrap = styled.div`
+  background: ${colors.white};
+  border-top: 5px solid ${colors.coral};
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: ${colors.grey500};
+
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .error {
+    color: ${colors.coral};
+    font-size: 0.7rem;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  #comment {
+    width: 100%;
+    ${formField}
+  }
+
+  #author, #email, #url {
+    ${formField}
+  }
+
+  input[type="submit"] {
+    margin-top: 2rem;
+  }
+`
+
+const FormHeading = styled.div`
+  font-weight: bold;
+  color: ${colors.coral};
+  margin-bottom: 1.5rem;
+`
+
+const Message = styled.span`
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  font-style: italic;
+`
 
 class CommentForm extends Component {
   constructor(props) {
@@ -35,26 +79,10 @@ class CommentForm extends Component {
     })
     const postId = this.props.postId
     return (
-      <div
-        css={css`
-          background: ${colors.white};
-          border-top: 5px solid ${colors.coral};
-          padding: 2rem;
-          margin-top: 2rem;
-          margin-bottom: 2rem;
-          color: ${colors.grey500};
-        `}
-        id="respond"
-      >
-        <div
-          css={css`
-            font-weight: bold;
-            color: ${colors.coral};
-            margin-bottom: 1.5rem;
-          `}
-        >
+      <FormWrap id="respond">
+        <FormHeading>
           Leave a Reply
-        </div>
+        </FormHeading>
         <p>
           Your email address will not be published. Required fields are marked *
         </p>
@@ -95,20 +123,7 @@ class CommentForm extends Component {
           }}
         >
           {({ errors, touched }) => (
-            <Form
-              css={css`
-                label {
-                  display: block;
-                  margin-top: 1rem;
-                }
-                .error {
-                  color: ${colors.coral};
-                  font-size: 0.7rem;
-                  margin-top: 2px;
-                  font-style: italic;
-                }
-              `}
-            >
+            <Form>
               <div>
                 <label htmlFor="comment">Comment*</label>
                 <Field
@@ -116,10 +131,6 @@ class CommentForm extends Component {
                   id="comment"
                   component="textarea"
                   rows="8"
-                  css={css`
-                    width: 100%;
-                    ${formField}
-                  `}
                 />
                 {errors.content && touched.content ? (
                   <div className="error">{errors.content}</div>
@@ -131,9 +142,6 @@ class CommentForm extends Component {
                   name="author_name"
                   id="author"
                   size="30"
-                  css={css`
-                    ${formField}
-                  `}
                 />
                 {errors.author_name && touched.author_name ? (
                   <div className="error">{errors.author_name}</div>
@@ -146,9 +154,6 @@ class CommentForm extends Component {
                   id="email"
                   type="email"
                   size="30"
-                  css={css`
-                    ${formField}
-                  `}
                 />
                 {errors.author_email && touched.author_email ? (
                   <div className="error">{errors.author_email}</div>
@@ -161,9 +166,6 @@ class CommentForm extends Component {
                   id="url"
                   type="url"
                   size="30"
-                  css={css`
-                    ${formField}
-                  `}
                 />
                 {errors.author_url && touched.author_url ? (
                   <div className="error">{errors.author_url}</div>
@@ -176,29 +178,20 @@ class CommentForm extends Component {
                     ? true
                     : false
                 }
-                css={css`
-                  margin-top: 2rem;
-              `}
               >
                 Post Comment
               </button>
               {this.state.formSubmitted ? (
-                <span
-                  css={css`
-                    font-size: 0.8rem;
-                    margin-left: 0.5rem;
-                    font-style: italic;
-                  `}
-                >
+                <Message>
                   Thanks! Your comment is awaiting moderation.
-                </span>
+                </Message>
               ) : (
                 ""
               )}
             </Form>
           )}
         </Formik>
-      </div>
+      </FormWrap>
     )
   }
 }
