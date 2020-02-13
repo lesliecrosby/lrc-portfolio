@@ -52,7 +52,7 @@ class IndexPage extends Component {
         </section>
 
         <section className="section__bio triangles triangles--coral">
-          <BioContainer className="container">
+          <BioContainer className="container container--sm">
             <Headshot
               alt={page.acf.headshot.alt_text}
               // TODO: this doesn't seem especially FLUID...
@@ -65,7 +65,7 @@ class IndexPage extends Component {
         {page.acf.skills &&
         <section className="skills">
           <div className="inner">
-            <div className="container">
+            <div className="container container--sm">
               <div className="card--overlap">
                 <h2 className="h6">Skills You Want</h2>
                 <ul>

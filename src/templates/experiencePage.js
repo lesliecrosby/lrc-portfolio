@@ -39,7 +39,7 @@ class ExperiencePage extends Component {
         </section>
 
         <section className="section__bio triangles triangles--sage">
-          <BioContainer className="container">
+          <BioContainer className="container container--sm">
           {parse( page.content ) }
           </BioContainer>
         </section>

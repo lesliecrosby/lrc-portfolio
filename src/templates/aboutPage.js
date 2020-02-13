@@ -57,7 +57,7 @@ class AboutPage extends Component {
         </section>
 
         <section className="section__bio triangles triangles--coral">
-          <BioContainer className="container">
+          <BioContainer className="container container--sm">
             <Headshot
               alt={page.acf.headshot.alt_text}
               // TODO: this doesn't seem especially FLUID...

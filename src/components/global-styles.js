@@ -22,6 +22,7 @@ export const colors = {
 
 export const breakpoints = {
   mobile: '650px',
+  tablet: '768px',
   desktop: '1024px',
   large: '1200px',
   huge: '1440px',
