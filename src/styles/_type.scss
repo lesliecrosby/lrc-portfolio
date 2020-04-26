@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&display=swap');
 
 html {
@@ -8,15 +7,15 @@ html {
   font-size: 100%;
   color: $black;
 }
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // font-family:
-  //   "LT Tofino Regular",
-  //   "Montserrat", sans-serif;
   line-height: 1.5;
+  font-size: 0.875em;
 }
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -29,50 +28,54 @@ h6, .h6 {
   color: inherit;
   text-rendering: optimizeLegibility;
 }
+
 h1, .h1 {
-  // 34px
-  // font-size: 2.125em;
-  font-size: 2.5em; // 40px
+  font-size: 2.2375rem; // 38px
   text-transform: uppercase;
-  letter-spacing: 0.1875em;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.5rem; // 8px
+  margin-bottom: 1.25rem; // 20px
 }
+
 h2, .h2 {
-  // 28px
-  font-size: 1.55em;
+  font-size: 1.5rem; // 24px
   text-transform: uppercase;
-  letter-spacing: 0.1875em;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.25rem; // 4px
+  margin-bottom: 1.25rem; // 20px
 }
+
 h3, .h3 {
-  // 23px
-  font-size: 1.4375em;
-  text-transform: uppercase;
-  letter-spacing: 0.1875em;
-  margin-bottom: 1.25rem;
+  font-size: 1.625rem; // 26px
+  margin-bottom: 1.25rem; // 20px
+
+  strong {
+    color: $coral;
+  }
 }
+
 h4, .h4 {
-  // 19px
-  font-size: 1.1875em;
+  font-size: 1.125rem; // 18px
   text-transform: uppercase;
-  letter-spacing: 0.1875em;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.0625rem; // 1px
+  margin-bottom: 1.25rem; // 20px
 }
+
 h5, .h5 {
-  // 16px
-  font-size: 1em;
-  margin-bottom: 1.25rem;
-}
-h6, .h6 {
-  // 12px
-  font-size: 0.75em;
+  font-size: 1.25rem; // 20px
   text-transform: uppercase;
-  letter-spacing: 0.1875em;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.1875rem; // 3px
+  margin-bottom: 1.25rem; // 20px
 }
+
+h6, .h6 {
+  font-size: 0.625rem; // 10px
+  text-transform: uppercase;
+  letter-spacing: 0.125rem; // 2px
+  margin-bottom: 1.25rem; // 20px
+}
+
 p {
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.25rem; // 20px
 }
 
 .button {
@@ -83,10 +86,12 @@ p {
   box-shadow: none;
   text-shadow: none;
   color: $white;
+  font-family: "LT Tofino Wide", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.625rem; // 10px
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  letter-spacing: 0.125rem; // 2px
   text-decoration: none;
   padding: 0.8rem 1.5rem 0.6rem;
   cursor: pointer;

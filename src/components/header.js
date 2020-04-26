@@ -12,8 +12,6 @@ import {
 const HeaderOuter = styled.header`
   position: relative;
   z-index: 100;
-  /* overflow: ${(props) => props.menuOpen ? 'visible' : 'hidden' }; */
-  /* overflow: ${this.state.menuOpen ? 'visible' : 'hidden'}; */
 `
 
 const HeaderInner = styled.div`
@@ -33,19 +31,17 @@ const NavMenu = styled.nav`
   top: 0;
   width: 50%;
   height: 100vh;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: white;
+  justify-content: center;
   transition: left 250ms ease;
   left: ${(props) => props.menuOpen ? '50%' : '100%'};
-  /* left: ${this.state.menuOpen ? '50%' : '100%'}; */
-  display: flex;
   background-color: ${colors.lightcoral};
-  /* display: ${this.state.menuOpen ? 'flex' : 'none'}; */
+
   @media (min-width: ${breakpoints.mobile}) {
-    display: block;
     position: static;
+    display: block;
     height: auto;
     width: auto;
     background-color: transparent;
@@ -54,22 +50,30 @@ const NavMenu = styled.nav`
 
 const NavList = styled.ul`
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0;
-  margin: 0;
-  & li {
-    margin-left: 1.2rem;
+
+  li {
     margin-bottom: 2rem;
   }
-  & a {
+
+  a {
     text-decoration: none;
+
+    &[aria-current="page"] {
+      text-decoration: underline;
+    }
   }
+
   @media (min-width: ${breakpoints.mobile}) {
     flex-direction: row;
     align-items: flex-end;
-    & li {
+
+    li {
+      margin-left: 1.5rem;
       margin-bottom: 0;
     }
   }
@@ -81,12 +85,28 @@ const LogoLink = styled(Link)`
   text-decoration: none;
 `
 
-const Hamburger = styled.button`
-  display: flex;
-  /* TODO: GET RID OF THIS IMPORTANT! ! */
-  @media (min-width: ${breakpoints.mobile}) {
-    display: none !important;
+const MenuButton = styled.button`
+  &.hamburger {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    @media (min-width: ${breakpoints.mobile}) {
+      display: none;
+    }
   }
+
+`
+
+const MenuLabel = styled.span`
+  margin: 5px 0 0;
+  position: relative;
+  font-size: 0.8em;
 `
 
 class Header extends Component {
@@ -103,7 +123,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    setTimeout( () => this.setState({ isMounted: true}), 100);
+    setTimeout( () => this.setState({ isMounted: true }), 100);
 
     window.addEventListener('resize', () => this.handleResize());
   }
@@ -150,16 +170,16 @@ class Header extends Component {
             </NavList>
           </NavMenu>
 
-          <Hamburger
+          <MenuButton
           className={`hamburger hamburger--collapse hamburger--accessible js-hamburger ${this.state.menuOpen ? 'is-active' : ''}`}
           type="button"
           onClick={this.toggleMenu}
           >
-            <span className="hamburger-label">Menu</span>
+            <MenuLabel className="hamburger-label">Menu</MenuLabel>
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
             </span>
-          </Hamburger>
+          </MenuButton>
 
         </HeaderInner>
       </HeaderOuter>

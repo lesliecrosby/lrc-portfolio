@@ -166,6 +166,14 @@ body {
     list-style: none;
   }
   li {
+    // match to h5
+    font-family: "LT Tofino Condensed", sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem; // 20px
+    text-transform: uppercase;
+    letter-spacing: 0.1875rem; // 3px
+    margin-bottom: 1.25rem; // 20px
+
     margin-bottom: 8px;
   }
 }

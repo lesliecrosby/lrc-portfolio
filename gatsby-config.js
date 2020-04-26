@@ -6,8 +6,8 @@ module.exports = {
   siteMetadata: {
     title: `Leslie R Crosby`,
     description: `Front-End Developer and Design Liason`,
-    author: `@roberl54`,
-    siteUrl: `http://lesliercrosby.local`,
+    author: `@lesliespinach`,
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,73 +20,17 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-emotion`,
     `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-plugin-sass",
       options: {
         useResolveUrlLoader: {
           options: {
-            sourceMap: true, //default is false
+            sourceMap: true, // default is false
           },
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-feed`,
-    //   options: {
-    //     query: `
-    //       {
-    //         site {
-    //           siteMetadata {
-    //             title
-    //             description
-    //             siteUrl
-    //             site_url: siteUrl
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, allWordpressPost } }) => {
-    //           return allWordpressPost.edges.map(edge => {
-    //             return Object.assign(
-    //               {},
-    //               {
-    //                 title: edge.node.title,
-    //                 description: edge.node.excerpt,
-    //                 date: edge.node.date,
-    //                 url: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
-    //                 guid: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
-    //               }
-    //             )
-    //           })
-    //         },
-    //         query: `
-    //           {
-    //             allWordpressPost(sort: { fields: [date], order: DESC }) {
-    //               edges {
-    //                 node {
-    //                   title
-    //                   excerpt
-    //                   slug
-    //                 }
-    //               }
-    //             }
-    //             site {
-    //               siteMetadata {
-    //                 title
-    //               }
-    //             }
-    //           }
-    //         `,
-    //         output: "/rss.xml",
-    //         title: "Leslie R Crosby - RSS Feed",
-    //       },
-    //     ],
-    //   },
-    // },
     `gatsby-plugin-polished`,
     {
       resolve: `gatsby-plugin-manifest`,

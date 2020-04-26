@@ -1,8 +1,7 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
 import diamond from "../images/diamond.svg"
@@ -32,12 +31,14 @@ const Bio = styled.div`
     margin: 0 0 0 4rem;
   }
 `
+
 const Headshot = styled(Img)`
   flex: 0 0 210px;
   width: 210px;
   height: 210px;
   border-radius: 50%;
 `
+
 class IndexPage extends Component {
   render() {
     const page = this.props.data.wordpressPage
