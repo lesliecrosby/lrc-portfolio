@@ -1,8 +1,6 @@
 import { React, Component } from "react"
-// import { graphql } from "gatsby"
-// import PropTypes from "prop-types"
-import { css } from "@emotion/core"
-import SingleComment from "../components/singleComment"
+import styled from "styled-components"
+import CommentSingle from "../components/commentSingle"
 import CommentsWrapper from "../components/commentsWrapper"
 import CommentForm from "../components/commentForm"
 
@@ -13,6 +11,21 @@ import {
   // unorderedListStyles,
   // underline,
 } from "../components/global-styles"
+
+const Comments = styled.div`
+  max-width: 600px;
+  margin: auto;
+  > ol {
+    margin-left: 0;
+    > li {
+      padding-bottom: 4rem;
+      border-bottom: 1px solid ${colors.grey300};
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+`
 
 class BlogComments extends Component {
   render(props) {
@@ -40,14 +53,14 @@ class BlogComments extends Component {
     }
     const renderComments = comment => {
       if (!Array.isArray(comment)) {
-        return <SingleComment comment={comment} />
+        return <CommentSingle comment={comment} />
       } else {
         return (
-          <SingleComment comment={comment[0]}>
+          <CommentSingle comment={comment[0]}>
             <CommentsWrapper>
               {comment[1].map(comment => renderComments(comment))}
             </CommentsWrapper>
-          </SingleComment>
+          </CommentSingle>
         )
       }
     }
@@ -56,22 +69,7 @@ class BlogComments extends Component {
     const post = this.props.post
 
     return (
-      <div
-        css={css`
-          max-width: 600px;
-          margin: auto;
-          > ol {
-            margin-left: 0;
-            > li {
-              padding-bottom: 4rem;
-              border-bottom: 1px solid ${colors.grey300};
-              &:last-child {
-                border-bottom: none;
-              }
-            }
-          }
-        `}
-      >
+      <Comments>
         {allComments ? (
           <div>
             <CommentForm postId={post.wordpress_id} />
@@ -89,7 +87,7 @@ class BlogComments extends Component {
             <CommentForm postId={post.wordpress_id} />
           </div>
         )}
-      </div>
+      </Comments>
     )
   }
 }

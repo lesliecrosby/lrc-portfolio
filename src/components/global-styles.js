@@ -1,13 +1,16 @@
 export const colors = {
   white: "#ffffff",
+  black: "#262626",
+  cream: "#f9f9f9",
+  almond: "#f1eee7",
   grey200: "#f4f7f6",
   grey300: "#e0e4e3",
   grey500: "#7c7c7c",
   grey800: "#333",
   teal: "#a8dcd1",
 
-  // coral: "#E16F56",
-  coral: "#efa595",
+  coral: "#E16F56",
+  // coral: "#efa595",
   lightcoral: "#F08A7C",
 //   sage: "#889891",
   // sage: "#86a99a",
@@ -18,9 +21,11 @@ export const colors = {
   lightdusk: "#9196A7",
 }
 
-//TODO: consider making more like this: https://github.com/bchiang7/v4/blob/master/src/styles/media.js
 export const breakpoints = {
   mobile: '650px',
+  tablet: '768px',
+  desktop: '1024px',
+  large: '1200px',
   huge: '1440px',
 }
 
@@ -29,8 +34,8 @@ export const container = `
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 768px) {
-      width: 75%;
-      max-width: 1080px;
+    width: 75%;
+    max-width: 1080px;
   }
 `
 

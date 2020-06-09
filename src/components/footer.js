@@ -1,51 +1,50 @@
 import React from "react"
-// import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 
 import {
-  breakpoints,
   colors,
-  // container,
-  } from "../components/global-styles"
+  } from "./global-styles"
+
+const SiteFooter = styled.footer`
+  background-color: ${colors.black};
+  color: ${colors.grey500};
+  position: relative;
+`
+
+const FooterInner = styled.div`
+  padding: 1.45rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const SocialsList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+
+  li {
+    width: 20px;
+    margin-right: 16px;
+  }
+
+  svg {
+    fill: ${colors.grey500}
+  }
+`
+
+const Credit = styled.div`
+  font-size: 0.75rem;
+`
 
 const Footer = ({ siteTitle }) => (
-  <footer
-    css={css`
-      background-color: #111;
-      color: ${colors.white};
-    `}
-  >
-    <div
-      className="container"
-      css={css`
-        padding: 1.45rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @media (min-width: ${breakpoints.mobile}) {
-
-        }
-      `}
-    >
-      <ul
-        css={css`
-          list-style: none;
-          padding-left: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 0;
-
-          li {
-            width: 20px;
-            margin-right: 10px;
-          }
-          svg {
-            fill: ${colors.sage}
-          }
-        `}
-      >
+  <SiteFooter>
+    <FooterInner className="container">
+      <SocialsList>
         <li>
           <a
             href="https://www.linkedin.com/in/leslie-r-crosby-42181332/"
@@ -61,7 +60,7 @@ const Footer = ({ siteTitle }) => (
 
         <li>
           <a
-            href="https://github.com/roberl54"
+            href="https://github.com/lesliecrosby"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -81,28 +80,20 @@ const Footer = ({ siteTitle }) => (
           >
             <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 512 512">
               <title>Instagram</title>
-
                 <path d="M352,0H160C71.648,0,0,71.648,0,160v192c0,88.352,71.648,160,160,160h192c88.352,0,160-71.648,160-160V160 C512,71.648,440.352,0,352,0z M464,352c0,61.76-50.24,112-112,112H160c-61.76,0-112-50.24-112-112V160C48,98.24,98.24,48,160,48 h192c61.76,0,112,50.24,112,112V352z"></path>
-
                 <path d="M256,128c-70.688,0-128,57.312-128,128s57.312,128,128,128s128-57.312,128-128S326.688,128,256,128z M256,336 c-44.096,0-80-35.904-80-80c0-44.128,35.904-80,80-80s80,35.872,80,80C336,300.096,300.096,336,256,336z"></path>
-
                 <circle cx="393.6" cy="118.4" r="17.056"></circle>
-
             </svg>
           </a>
         </li>
 
-      </ul>
-      <div
-        css={css`
-          font-size: 0.75rem;
-        `}
-      >
+      </SocialsList>
+      <Credit>
         © {new Date().getFullYear()}, Leslie R Crosby
-      </div>
+      </Credit>
 
-    </div>
-  </footer>
+    </FooterInner>
+  </SiteFooter>
 )
 
 Footer.propTypes = {

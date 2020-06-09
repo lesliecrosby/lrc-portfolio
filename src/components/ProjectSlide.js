@@ -1,107 +1,164 @@
 import React, { Component } from "react"
-import { css } from "@emotion/core"
+import Img from "gatsby-image"
+import styled from "styled-components"
 import { Link } from "gatsby"
 import {
   breakpoints,
   colors,
   } from "./global-styles"
-import Desktop from "./desktop"
 import base from "../images/base.svg"
+
+const ProjectItem = styled.article`
+  min-height: 100vh;
+  background-color: ${colors.dusk};
+  padding: 80px 0;
+  overflow: hidden;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+`
+
+const ProjectPreview = styled.section`
+  width: 100%;
+`
+
+const ProjectLink = styled(Link)`
+  @media (min-width: ${breakpoints.mobile}) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`
+
+const Desktop = styled.div`
+  position: relative;
+  left: -10%;
+  overflow: hidden;
+  width: 90%;
+  height: auto;
+  padding-top: 56.25%;
+  background-color: ${colors.grey800};
+  border: 2vw solid ${colors.grey800};
+  border-radius: 1rem;
+  z-index: 1;
+
+   @media (min-width: ${breakpoints.mobile}) {
+    width: 80%;
+    padding-top: 50%;
+    left: auto;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 60%;
+    padding-top: 37.5%;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    width: 50%;
+    padding-top: 31.25%
+  }
+`
+
+const DesktopBase = styled.img`
+  position: relative;
+  width: 33.33%;
+  top: -3vw;
+  margin-bottom: -3vw;
+  left: 17.5%;
+
+  @media (min-width: ${breakpoints.mobile}) {
+    /* width: 22.5%; */
+    width: 30%;
+    left: auto;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 22.5%;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    width: 18.75%;
+  }
+`
+
+const ImageWrap = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+`
+
+const ProjectInfo = styled.section`
+  padding: 2rem 7.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: ${colors.white};
+  @media (min-width: ${breakpoints.mobile}) {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: ${colors.lightdusk}70;
+    padding: 2rem 10% 2rem 12.5%;
+    display: flex;
+    z-index: 1;
+  }
+`
+
+const TagList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+`
 
 class ProjectSlide extends Component {
   render() {
     return (
-      <article
-        css={css`
-          height: 100vh;
-          background-color: ${colors.dusk};
-          padding: 80px 0;
-          @media (min-width: 650px) {
-            display: flex;
-            /* height: 100vh; */
-            position: relative;
-          }
-        `}
-      >
-        <section
-          css={css`
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-          `}
-        >
-          <Link
-            to={this.props.target}
-            css={css`
-              flex: 1 1 auto;
-            `}
-          >
+      <ProjectItem>
+        <ProjectPreview>
+          <ProjectLink to={this.props.target}>
             {this.props.children}
-            <Desktop imageAlt={this.props.imageAlt} image={this.props.image} />
-            <img
+
+            <Desktop>
+              <ImageWrap>
+                <Img
+                  alt={this.props.imageAlt}
+                  fluid={this.props.image}
+                />
+              </ImageWrap>
+            </Desktop>
+
+            <DesktopBase
               src={base}
               alt="desktop base illustration"
-              css={css`
-                width: 33.33%;
-                position: relative;
-                top: -3vw;
-                left: 10%;
-                @media (min-width: ${breakpoints.mobile}) {
-                  width: 30%;
-                  left: 0;
-                }
-              `}
             />
-          </Link>
+          </ProjectLink>
+        </ProjectPreview>
 
-        </section>
-        <section
-          css={css`
-            padding: 2rem 7.5%;
-            display: flex;
-            flex-direction: column;
-            justify-items: center;
-            color: ${colors.white};
-            @media (min-width: 650px) {
-              position: absolute;
-              width: 50%;
-              height: 100%;
-              top: 0;
-              right: 0;
-              background-color: ${colors.lightdusk}70;
-              padding: 2rem 10% 2rem 12.5%;
-              display: flex;
-              justify-content: center;
-              align-items: flex-start;
-              z-index: 1;
-            }
-          `}
-        >
-          <h2 className="h6">
-            <Link
-              to={this.props.target}
-              css={css`
-                text-decoration: none;
-              `}
-              href="#"
-            >
-              {this.props.title}
-            </Link>
+        <ProjectInfo>
+          <h2 className="h3">
+            {this.props.title}
           </h2>
           <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
-          <ul
-            css={css`
-              list-style: none;
-              padding-left: 0;
-            `}
-          >
+          <TagList>
             {this.props.tags.map(({tag}, i) => (
               <li key={i}>{tag}</li>
             ))}
-          </ul>
-        </section>
-      </article>
+          </TagList>
+          <Link to={this.props.target} className="button button--sm">View Project</Link>
+        </ProjectInfo>
+      </ProjectItem>
     )
   }
 }

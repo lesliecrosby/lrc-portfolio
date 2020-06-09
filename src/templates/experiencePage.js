@@ -1,19 +1,27 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
-// import { Link } from "gatsby"
+import styled from "styled-components"
 import parse from "html-react-parser"
-// import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-// import Article from "../components/article"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 import {
-  // colors,
-  // container
+  breakpoints
   } from "../components/global-styles"
 
+const BioContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  @media (min-width: ${breakpoints.mobile}) {
+    flex-direction: row;
+  }
+`
+
+const JobFacts = styled.div`
+  text-align: right;
+`
 class ExperiencePage extends Component {
   render() {
     const page = this.props.data.wordpressPage
@@ -24,10 +32,16 @@ class ExperiencePage extends Component {
           description={page.excerpt}
         />
 
-        <section className="section__title triangles">
+        <section className="section__title">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
           </div>
+        </section>
+
+        <section className="section__bio triangles triangles--sage">
+          <BioContainer className="container container--sm">
+          {parse( page.content ) }
+          </BioContainer>
         </section>
 
         {page.acf.job &&
@@ -47,12 +61,10 @@ class ExperiencePage extends Component {
 
                 <h3 className="h5">{job.job_title}</h3>
                 <div className="description">{parse(job.description)}</div>
-                <div css={css`
-                text-align: right;
-                `}>
+                <JobFacts>
                   <h4 className="h6">{job.dates}</h4>
                   <h4 className="h6">{job.location}</h4>
-                </div>
+                </JobFacts>
 
               </div>
             </div>

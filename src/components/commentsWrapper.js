@@ -1,20 +1,20 @@
 import React, { Component } from "react"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 
-class CommentWrapper extends Component {
+const OrderedList = styled.ol`
+  list-style: none;
+  margin-left: 3rem;
+  padding-left: 0;
+`
+
+class CommentsWrapper extends Component {
   render(props) {
     return (
-      <ol
-        css={css`
-          list-style: none;
-          margin-left: 3rem;
-          padding-left: 0;
-        `}
-      >
+      <OrderedList>
         {this.props.children}
-      </ol>
+      </OrderedList>
     )
   }
 }
 
-export default CommentWrapper
+export default CommentsWrapper

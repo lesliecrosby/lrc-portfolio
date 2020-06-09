@@ -1,12 +1,11 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-// import { css } from "@emotion/core"
 import parse from "html-react-parser"
 
-import Layout from "../components/layout"
-import Article from "../components/article"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import Article from "../components/Article"
+import SEO from "../components/Seo"
 import BlogComments from "../components/comments"
 // import {
 //   container

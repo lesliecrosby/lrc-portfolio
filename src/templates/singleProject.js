@@ -1,21 +1,45 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
 // import { Link } from "gatsby"
-import Layout from "../components/layout"
-import Article from "../components/article"
+import Layout from "../components/Layout"
+import Article from "../components/Article"
 import Gallery from "../components/Gallery"
-import SEO from "../components/seo"
-// import TagList from "../components/tagList"
+import SEO from "../components/Seo"
+// import TagList from "../components/TagList"
 
 import {
   colors,
   container
 } from "../components/global-styles"
 
+const Hero = styled.div`
+  padding-bottom: 80px;
+`
+
+const FeaturedImage = styled.section`
+  background-color: ${colors.lightsage};
+  padding: 80px 0;
+
+  &.container {
+    ${container}
+  }
+`
+
+const ProjectMeta = styled.section`
+  background-color: ${colors.sage};
+  padding: 40px 0;
+
+  & > div {
+    ${container}
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+`
 
 class SingleProject extends Component {
   render() {
@@ -38,37 +62,18 @@ class SingleProject extends Component {
           </div>
         </section>
 
-        <div
-          css={css`
-            padding-bottom: 80px;
-          `}
-        >
-
-          <section css={css`
-            background-color: ${colors.lightsage};
-            padding: 80px 0;
-          `}>
-            <div css={css`
-              ${container}
-            `}>
+        <Hero>
+          <FeaturedImage>
+            <div className="container">
               <Img
                 alt={project.featured_media.alt_text}
                 fluid={project.featured_media.localFile.childImageSharp.fluid}
               />
             </div>
-          </section>
+          </FeaturedImage>
 
-
-          <section className="project-meta" css={css`
-            background-color: ${colors.sage};
-            padding: 40px 0;
-          `}>
-            <div css={css`
-              ${container}
-              display: flex;
-              align-items: flex-start;
-              justify-content: space-between;
-            `}>
+          <ProjectMeta className="project-meta">
+            <div>
               {project.acf.services_list &&
               <div>
                 <h3 className="h6">Services</h3>
@@ -104,7 +109,7 @@ class SingleProject extends Component {
               </div>
               }
             </div>
-          </section>
+          </ProjectMeta>
 
           <Article>{parse(project.content)}</Article>
 
@@ -112,7 +117,7 @@ class SingleProject extends Component {
             <Gallery images={project.acf.image_gallery} />
           }
 
-        </div>
+        </Hero>
       </Layout>
     )
   }

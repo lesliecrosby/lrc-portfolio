@@ -1,5 +1,10 @@
 body {
-  background-color: $white;
+  background-color: $cream;
+}
+
+::selection {
+  color: $cream;
+  background-color: $sage;
 }
 
 #___gatsby > div {
@@ -12,10 +17,14 @@ body {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     width: 75%;
     max-width: 1080px;
   }
+}
+
+.container--sm {
+  max-width: 800px;
 }
 
 .py {
@@ -29,17 +38,33 @@ body {
 
 .projects-list {
   article:nth-of-type(n + 1) {
-    background-color: $sage;
+    background-color: $dusk;
     section:nth-of-type(2) {
-      @media (min-width: 650px) {
-        background-color: rgba($lightsage, 0.7);
+      @media (min-width: $mobile) {
+        background-color: rgba($lightdusk, 0.8);
       }
     }
   }
   article:nth-of-type(n + 2) {
-    background-color: $coral;
+    background-color: $sage;
     section:nth-of-type(2) {
-      @media (min-width: 650px) {
+      @media (min-width: $mobile) {
+        background-color: rgba($lightsage, 0.8);
+      }
+    }
+  }
+  article:nth-of-type(n + 3) {
+    background-color: $coral;
+    .button {
+      background-color: $lightdusk;
+      border-bottom: 4px solid $dusk;
+      &:hover {
+        background-color: $dusk;
+        border-bottom: 4px solid $lightdusk;
+      }
+    }
+    section:nth-of-type(2) {
+      @media (min-width: $mobile) {
         background-color: rgba($lightcoral, 0.8);
       }
     }
@@ -86,7 +111,7 @@ body {
 .experience,
 .skills,
 .tech {
-  background-color: $coral;
+  background-color: $almond;
 
   .inner {
     padding: 8rem 0 6rem;
@@ -117,9 +142,9 @@ body {
         border: 1px solid $sage;
       }
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet) {
       width: 50%;
-      max-width: 800px;
+      max-width: 700px;
 
       &::before {
         width: calc(100% + 4rem);
@@ -141,13 +166,21 @@ body {
     list-style: none;
   }
   li {
+    // match to h5
+    font-family: "LT Tofino Condensed", sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem; // 20px
+    text-transform: uppercase;
+    letter-spacing: 0.1875rem; // 3px
+    margin-bottom: 1.25rem; // 20px
+
     margin-bottom: 8px;
   }
 }
 
 .skills {
   .inner {
-    @media (min-width: 768px) {
+    @media (min-width: $tablet) {
       padding: 8rem 0;
     }
   }
@@ -161,7 +194,7 @@ body {
       background-color: $coral;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet) {
       padding: 10rem 0 6rem;
     }
   }
@@ -267,9 +300,9 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -180px;
+    bottom: -240px;
     width: 50%;
-    height: 180px;
+    height: 240px;
     transform: skew(0deg, 12deg);
     transform-origin: right;
     background-color: $lightsage;
@@ -283,8 +316,15 @@ body {
     z-index: -1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     padding-bottom: 6rem;
+  }
+}
+
+.triangles--almond {
+  &::before,
+  &::after {
+    background-color: $almond;
   }
 }
 
@@ -298,7 +338,7 @@ body {
 .section__bio {
   padding-bottom: 6rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     padding-bottom: 180px;
   }
 }

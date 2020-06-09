@@ -1,19 +1,43 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { css } from "@emotion/core"
+import styled from "styled-components"
 import { Link } from "gatsby"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
 import diamond from "../images/diamond.svg"
 
-import Layout from "../components/layout"
-// import Article from "../components/article"
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 import {
-  // colors,
   breakpoints
   } from "../components/global-styles"
+
+const BioContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  @media (min-width: ${breakpoints.mobile}) {
+    flex-direction: row;
+  }
+`
+
+const Headshot = styled(Img)`
+  flex: 0 0 210px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+`
+
+const Bio = styled.div`
+  margin: 2rem 0;
+  @media (min-width: ${breakpoints.mobile}) {
+    margin: 0 0 0 2rem;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    margin: 0 0 0 4rem;
+  }
+`
 
 class AboutPage extends Component {
   render() {
@@ -32,38 +56,14 @@ class AboutPage extends Component {
         </section>
 
         <section className="section__bio triangles triangles--coral">
-          <div className="container"
-            css={css`
-              display: flex;
-              flex-direction: column-reverse;
-              align-items: center;
-              /* padding-bottom: 6rem; */
-              @media (min-width: ${breakpoints.mobile}) {
-                flex-direction: row;
-                /* padding-top: 4rem; */
-              }
-            `}
-          >
-            <Img
+          <BioContainer className="container container--sm">
+            <Headshot
               alt={page.acf.headshot.alt_text}
               // TODO: this doesn't seem especially FLUID...
               fluid={page.acf.headshot.localFile.childImageSharp.fluid}
-              css={css`
-                flex: 0 0 210px;
-                width: 210px;
-                height: 210px;
-                border-radius: 50%;
-              `}
             />
-            <div css={css`
-              margin: 2rem 0;
-              @media (min-width: ${breakpoints.mobile}) {
-                margin: 0 0 0 2rem;
-              }
-            `}>
-              {parse(page.acf.bio)}
-            </div>
-          </div>
+            <Bio>{parse(page.acf.bio)}</Bio>
+          </BioContainer>
         </section>
 
         {page.acf.skills &&
@@ -88,9 +88,6 @@ class AboutPage extends Component {
             <img
               src={diamond}
               alt="diamond decoration"
-              css={css`
-
-              `}
             />
           </div>
           <Link
