@@ -111,7 +111,7 @@ body {
 .experience,
 .skills,
 .tech {
-  background-color: $coral;
+  background-color: $almond;
 
   .inner {
     padding: 8rem 0 6rem;
@@ -318,6 +318,13 @@ body {
 
   @media (min-width: $tablet) {
     padding-bottom: 6rem;
+  }
+}
+
+.triangles--almond {
+  &::before,
+  &::after {
+    background-color: $almond;
   }
 }
 

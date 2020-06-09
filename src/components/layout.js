@@ -92,8 +92,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, .h1,
-  h2, .h2,
-  h6, .h6 {
+  h2, .h2 {
     font-family: "LT Tofino Wide", sans-serif;
     font-style: normal;
     font-weight: 800;

@@ -13,8 +13,8 @@ import {
 
 const ArticleContent = styled.article`
   padding: 1.5rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  /* font-size: 1.1rem; */
+  /* line-height: 1.6; */
   @media (min-width: ${breakpoints.mobile}) {
     padding: 3rem;
   }

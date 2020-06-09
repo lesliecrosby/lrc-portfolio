@@ -52,7 +52,7 @@ class IndexPage extends Component {
           </div>
         </section>
 
-        <section className="section__bio triangles triangles--coral">
+        <section className="section__bio triangles triangles--almond">
           <BioContainer className="container container--sm">
             <Headshot
               alt={page.acf.headshot.alt_text}

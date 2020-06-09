@@ -41,8 +41,6 @@ const ProjectMeta = styled.section`
   }
 `
 
-
-
 class SingleProject extends Component {
   render() {
 
