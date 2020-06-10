@@ -8,8 +8,11 @@
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.23",
     "@fullpage/react-fullpage": "^0.1.16",
+    "@types/react": "^16.8.0",
+    "acorn": "^6.4.1",
     "babel-plugin-polished": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.6",
+    "bufferutil": "^4.0.1",
     "gatsby": "^2.0.0",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-emotion": "^4.1.13",
@@ -40,7 +43,8 @@
     "react-typography": "^0.16.18",
     "styled-components": "^4.4.1",
     "typography": "^0.16.18",
-    "typography-theme-lincoln": "^0.16.18"
+    "typography-theme-lincoln": "^0.16.18",
+    "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
     "formik": "^1.5.1",
