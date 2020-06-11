@@ -61,14 +61,14 @@ const NavList = styled.ul`
   }
 
   a {
-    text-decoration: none;
-    transform: text-decoration 200ms ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-position: under;
+    transition: text-decoration 200ms ease;
 
     &:hover,
     &[aria-current="page"] {
-      text-decoration: underline;
-      text-underline-position: under;
-      text-decoration-color: ${colors.almond};
+      text-decoration-color: ${colors.sage};
     }
   }
 
@@ -159,10 +159,10 @@ class Header extends Component {
                 <Link to="/">About Me</Link>
               </li>
               <li>
-                <Link to="/experience">Experience</Link>
+                <Link to="/projects">Projects</Link>
               </li>
               <li>
-                <Link to="/projects">Projects</Link>
+                <Link to="/experience">Experience</Link>
               </li>
               <li>
                 <a
