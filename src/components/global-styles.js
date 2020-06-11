@@ -12,6 +12,7 @@ export const colors = {
   lightcoral: "#F08A7C",
   sage: "#b6cec3",
   lightsage: "#9db9b1",
+  spruce: "#384A45",
   dusk: "#857E8C",
   lightdusk: "#9196A7",
 }
