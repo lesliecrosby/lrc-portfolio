@@ -10,8 +10,8 @@ const Frame = styled.div`
   width: 90%;
   height: auto;
   padding-top: 56.25%;
-  background-color: ${colors.grey800};
-  border: 2vw solid ${colors.grey800};
+  background-color: ${colors.gray800};
+  border: 2vw solid ${colors.gray800};
   border-radius: 1rem;
   position: relative;
   left: -10%;

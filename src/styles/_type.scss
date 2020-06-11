@@ -99,7 +99,7 @@ p {
   cursor: pointer;
   transition: background-color 250ms ease, border 250ms ease;
   &:disabled {
-    background: $grey300;
+    background: $gray300;
     cursor: default;
   }
   &:focus {

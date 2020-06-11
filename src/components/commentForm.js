@@ -4,8 +4,7 @@ import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 
 import {
-  colors,
-  formField,
+  colors
 } from "../components/global-styles"
 
 const FormWrap = styled.div`
@@ -14,7 +13,7 @@ const FormWrap = styled.div`
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  color: ${colors.grey500};
+  color: ${colors.gray500};
 
   label {
     display: block;
@@ -28,13 +27,21 @@ const FormWrap = styled.div`
     font-style: italic;
   }
 
-  #comment {
-    width: 100%;
-    ${formField}
+  /* TODO: change to classes */
+  #author, #comment, #email, #url {
+    border: none;
+    background: ${colors.gray200};
+    margin: 0.5rem 0 0;
+    padding: 0.5rem;
+    border-bottom: 3px solid ${colors.gray200};
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid ${colors.sage};
+    }
   }
 
-  #author, #email, #url {
-    ${formField}
+  #comment {
+    width: 100%;
   }
 
   input[type="submit"] {

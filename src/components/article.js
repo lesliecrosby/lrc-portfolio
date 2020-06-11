@@ -2,59 +2,34 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import {
-  boxShadow,
   breakpoints,
   colors,
   container,
-  orderedListStyles,
-  unorderedListStyles,
-  underline,
 } from "./global-styles"
 
 const ArticleContent = styled.article`
+  ${container}
   padding: 1.5rem;
-  /* font-size: 1.1rem; */
-  /* line-height: 1.6; */
   @media (min-width: ${breakpoints.mobile}) {
     padding: 3rem;
   }
-  ${container}
   a {
-    color: ${colors.grey800};
+    color: ${colors.gray800};
     text-decoration: none;
-    ${underline(
-      colors.white,
-      colors.coral,
-      colors.coral,
-      "100%",
-      "2px"
-    )}
-    &:hover {
-      ${underline(
-        colors.white,
-        colors.sage,
-        colors.sage,
-        "100%",
-        "2px"
-      )}
-    }
   }
   img {
-    ${boxShadow}
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
     display: block;
     margin: 0 auto;
   }
   code {
-    background: rgba(168, 220, 209, 0.3);
+    background: rgba(130, 197, 173, 0.3);
     border: none;
     box-shadow: none;
-    color: #333;
     padding: 3px 8px;
   }
-  ${orderedListStyles}
-  ${unorderedListStyles}
   blockquote {
-    background: ${colors.grey200};
+    background: ${colors.gray200};
     padding: 1.5rem;
     border-radius: 4px;
     border-left: 4px solid ${colors.sage};

@@ -25,7 +25,7 @@ const CommentItem = styled.li`
 `
 
 const CommentText = styled.div`
-  color: ${colors.grey800};
+  color: ${colors.gray800};
 `
 
 

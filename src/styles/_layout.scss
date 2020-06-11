@@ -37,7 +37,7 @@ body {
 }
 
 .projects-list {
-  article:nth-of-type(n + 1) {
+  article:nth-of-type(3n + 1) {
     background-color: $dusk;
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
@@ -45,7 +45,7 @@ body {
       }
     }
   }
-  article:nth-of-type(n + 2) {
+  article:nth-of-type(3n + 2) {
     background-color: $sage;
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
@@ -53,7 +53,7 @@ body {
       }
     }
   }
-  article:nth-of-type(n + 3) {
+  article:nth-of-type(3n + 3) {
     background-color: $coral;
     .button {
       background-color: $lightdusk;

@@ -16,7 +16,7 @@ const Post = styled.div`
   line-height: 1.6;
   margin-bottom: 3rem;
   a {
-    color: ${colors.grey800};
+    color: ${colors.gray800};
     text-decoration: none;
   }
   img {

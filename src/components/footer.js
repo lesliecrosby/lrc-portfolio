@@ -8,7 +8,7 @@ import {
 
 const SiteFooter = styled.footer`
   background-color: ${colors.black};
-  color: ${colors.grey500};
+  color: ${colors.gray500};
   position: relative;
 `
 
@@ -33,7 +33,7 @@ const SocialsList = styled.ul`
   }
 
   svg {
-    fill: ${colors.grey500}
+    fill: ${colors.gray500}
   }
 `
 

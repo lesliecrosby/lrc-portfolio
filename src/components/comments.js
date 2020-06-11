@@ -19,7 +19,7 @@ const Comments = styled.div`
     margin-left: 0;
     > li {
       padding-bottom: 4rem;
-      border-bottom: 1px solid ${colors.grey300};
+      border-bottom: 1px solid ${colors.gray300};
       &:last-child {
         border-bottom: none;
       }

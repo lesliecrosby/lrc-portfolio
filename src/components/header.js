@@ -62,9 +62,13 @@ const NavList = styled.ul`
 
   a {
     text-decoration: none;
+    transform: text-decoration 200ms ease;
 
+    &:hover,
     &[aria-current="page"] {
       text-decoration: underline;
+      text-underline-position: under;
+      text-decoration-color: ${colors.almond};
     }
   }
 

@@ -19,7 +19,7 @@ const List = styled.ul`
     margin-right: 0.75rem;
     padding: 2px 0.45rem;
     border-radius: 4px;
-    border: 1px solid ${colors.grey200};
+    border: 1px solid ${colors.gray200};
     border-bottom: 2px solid ${colors.sage};
     margin-bottom: 0.5rem;
     &:before {
