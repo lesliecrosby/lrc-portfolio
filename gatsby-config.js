@@ -52,7 +52,7 @@ module.exports = {
       options: {
         baseUrl: 'lesliercrosby.local',
         hostingWPCOM: false,
-        protocol: 'https',
+        protocol: 'http',
         useACF: true,
         // includedRoutes: [
         //   "**/categories",
@@ -76,13 +76,13 @@ module.exports = {
         // },
       },
     },
-    {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: "wordpressWpProjects",
-        imagePath: "featured_media.source_url",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-remote-images`,
+    //   options: {
+    //     nodeType: "wordpressWpProjects",
+    //     imagePath: "featured_media.source_url",
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

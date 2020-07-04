@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allPages: allWordpressPage(filter: {title: {ne: "About Me"}}) {
+      allPages: allWordpressPage(filter: {title: {ne: "Leslie Crosby"}}) {
         edges {
           node {
             id
@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      aboutPage: allWordpressPage(filter: {title: {eq: "About Me"}}) {
+      aboutPage: allWordpressPage(filter: {title: {eq: "Leslie Crosby"}}) {
         edges {
           node {
             id
