@@ -125,7 +125,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    wordpressPage(title: {eq: "About Me"}) {
+    wordpressPage(title: {eq: "Leslie Crosby"}) {
       title
       content
       date

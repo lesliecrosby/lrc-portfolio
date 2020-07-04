@@ -2,11 +2,12 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import logo from "../images/logo-lesliecrosby.svg"
+import arrow from "../images/arrow-up-right.svg"
 
 import {
   breakpoints,
   colors,
-  container,
 } from "./global-styles"
 
 const HeaderOuter = styled.header`
@@ -15,19 +16,18 @@ const HeaderOuter = styled.header`
 `
 
 const HeaderInner = styled.div`
-  ${container}
+  width: 90%;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1.45rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (min-width: ${breakpoints.mobile}) {
-    align-items: flex-end;
-  }
 `
 
 const NavMenu = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 50%;
   height: 100vh;
@@ -37,9 +37,9 @@ const NavMenu = styled.nav`
   justify-content: center;
   transition: left 250ms ease;
   left: ${(props) => props.menuOpen ? '50%' : '100%'};
-  background-color: ${colors.lightcoral};
+  background-color: ${colors.darkcoral};
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${breakpoints.tablet}) {
     position: static;
     display: block;
     height: auto;
@@ -61,18 +61,18 @@ const NavList = styled.ul`
   }
 
   a {
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-position: under;
-    transition: text-decoration 200ms ease;
+    text-decoration: none;
+    padding: 8px 0 8px 2px;
+    border-bottom: 1px solid transparent;
+    transition: border 200ms ease;
 
     &:hover,
     &[aria-current="page"] {
-      text-decoration-color: ${colors.sage};
+      border-bottom: 1px solid ${colors.coral};
     }
   }
 
-  @media (min-width: ${breakpoints.mobile}) {
+  @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
     align-items: flex-end;
 
@@ -80,13 +80,40 @@ const NavList = styled.ul`
       margin-left: 1.5rem;
       margin-bottom: 0;
     }
+
+    a {
+      font-size: 0.75rem;
+    }
   }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    li {
+      margin-left: 2.5rem;
+    }
+
+    a {
+      font-size: 0.875rem;
+    }
+  }
+`
+
+const Arrow = styled.img`
+  margin-left: 0.25rem;
+  vertical-align: middle;
 `
 
 const LogoLink = styled(Link)`
   font-size: 1.5rem;
   text-shadow: none;
   text-decoration: none;
+
+  img {
+    transition: filter 250ms ease;
+
+    &:hover {
+      filter: brightness(1.125);
+    }
+  }
 `
 
 const MenuButton = styled.button`
@@ -100,11 +127,10 @@ const MenuButton = styled.button`
       outline: none;
     }
 
-    @media (min-width: ${breakpoints.mobile}) {
+    @media (min-width: ${breakpoints.tablet}) {
       display: none;
     }
   }
-
 `
 
 const MenuLabel = styled.span`
@@ -150,26 +176,37 @@ class Header extends Component {
         <HeaderInner>
 
           <LogoLink to="/">
-            { this.props.siteTitle }
+            <img
+              src={ logo }
+              alt={ this.props.siteTitle }
+            />
+
           </LogoLink>
 
           <NavMenu menuOpen={this.state.menuOpen}>
             <NavList>
               <li>
-                <Link to="/">About Me</Link>
+                <h3><Link to="/">About</Link></h3>
               </li>
               <li>
-                <Link to="/projects">Projects</Link>
+                <h3><Link to="/projects">Projects</Link></h3>
               </li>
               <li>
-                <Link to="/experience">Experience</Link>
+                <h3><Link to="/experience">Experience</Link></h3>
               </li>
               <li>
-                <a
-                  href={this.props.resumeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >PDF Resume</a>
+                <h3>
+                  <a
+                    href={this.props.resumeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >PDF Resume
+                    <Arrow
+                      src={ arrow }
+                      alt="Arrow icon"
+                    />
+                  </a>
+                </h3>
               </li>
             </NavList>
           </NavMenu>

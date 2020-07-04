@@ -1,6 +1,6 @@
 $white: #ffffff;
-$black: #262626;
-$cream: #f9f9f9;
+$black: #000000;
+$cream: #F4F0EC;
 $almond: #f1eee7;
 $gray200: #f4f7f6;
 $gray300: #e0e4e3;
@@ -9,7 +9,7 @@ $gray800: #333;
 $teal: #a8dcd1;
 
 $coral: #E16F56;
-$lightcoral: #F08A7C;
+$darkcoral: #C75B43;
 $sage: #b6cec3;
 $lightsage: #9db9b1;
 $spruce: #384A45;
@@ -22,11 +22,11 @@ $lightdusk: #9196A7;
 .coral-bg {
   background-color: $coral;
 }
-.lightcoral {
-  color: $lightcoral;
+.darkcoral {
+  color: $darkcoral;
 }
-.lightcoral-bg {
-  background-color: $lightcoral;
+.darkcoral-bg {
+  background-color: $darkcoral;
 }
 .dusk {
   color: $dusk;

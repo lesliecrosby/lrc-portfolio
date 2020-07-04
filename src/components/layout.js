@@ -68,37 +68,49 @@ Layout.propTypes = {
 
 const GlobalStyle = createGlobalStyle`
 
-  /* Cond */
+  /* Wide Book */
+  @font-face {
+    font-family: "LT Tofino Wide";
+    src: url('../fonts/TofinoProPersonalWide-Book.woff2') format('woff2'),
+    url('../fonts/TofinoWide-Book.woff') format('woff');
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  /* Condensed */
   @font-face {
     font-family: "LT Tofino Condensed";
-    src: url('../fonts/cond/TofinoProPersonalCond-Medium.woff2') format('woff2'),
-    url('../fonts/cond/TofinoCond-Medium.woff') format('woff');
+    src: url('../fonts/TofinoProPersonalCond-Medium.woff2') format('woff2'),
+    url('../fonts/TofinoCond-Medium.woff') format('woff');
     font-style: normal;
     font-weight: 500;
   }
 
-  /* Wide */
+  /* Wide Black */
   @font-face {
     font-family: "LT Tofino Wide";
-    src: url('../fonts/wide/TofinoProPersonalWide-Black.woff2') format('woff2'),
-    url('../fonts/wide/TofinoWide-Black.woff') format('woff');
+    src: url('../fonts/TofinoProPersonalWide-Black.woff2') format('woff2'),
+    url('../fonts/TofinoWide-Black.woff') format('woff');
     font-style: normal;
     font-weight: 800;
   }
 
   html {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+    font-family: "LT Tofino Wide", sans-serif;
+    font-style: normal;
+    font-weight: 300;
   }
 
   h1, .h1,
   h2, .h2 {
     font-family: "LT Tofino Wide", sans-serif;
-    font-style: normal;
     font-weight: 800;
   }
 
-  h4, .h4 {
+  h3, .h3,
+  h4, .h4,
+  h6, .h6 {
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
   }
 
@@ -106,7 +118,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: "LT Tofino Condensed", sans-serif;
     font-weight: 500;
   }
-
 `
 
 export default Layout

@@ -1,7 +1,7 @@
 export const colors = {
   white: "#ffffff",
-  black: "#262626",
-  cream: "#f9f9f9",
+  black: "#000000",
+  cream: "#F4F0EC",
   almond: "#f1eee7",
   gray200: "#f4f7f6",
   gray300: "#e0e4e3",
@@ -9,7 +9,7 @@ export const colors = {
   gray800: "#333",
 
   coral: "#E16F56",
-  lightcoral: "#F08A7C",
+  darkcoral: "#C75B43",
   sage: "#b6cec3",
   lightsage: "#9db9b1",
   spruce: "#384A45",
