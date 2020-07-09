@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
-import diamond from "../images/diamond.svg"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -15,20 +14,28 @@ import {
 
 const BioContainer = styled.div`
   display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+
+  > div:first-child {
+    margin-bottom: 6rem;
+  }
+
   @media (min-width: ${breakpoints.mobile}) {
     flex-direction: row;
+
+    > div:first-child {
+      margin-bottom: 0;
+    }
   }
 `
 
 const Bio = styled.div`
-  margin: 2rem 0;
   @media (min-width: ${breakpoints.mobile}) {
-    margin: 0 0 0 2rem;
+    padding-right: 4rem;
   }
   @media (min-width: ${breakpoints.desktop}) {
-    margin: 0 0 0 4rem;
+    padding-right: 6rem;
   }
 `
 
@@ -36,7 +43,18 @@ const Headshot = styled(Img)`
   flex: 0 0 210px;
   width: 210px;
   height: 210px;
-  border-radius: 50%;
+
+  @media (min-width: ${breakpoints.desktop}) {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 300px;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    flex: 0 0 378px;
+    width: 378px;
+    height: 378px;
+  }
 `
 
 class IndexPage extends Component {
@@ -44,73 +62,40 @@ class IndexPage extends Component {
     const page = this.props.data.wordpressPage
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title={page.title} />
 
-        <section className="section__title">
-          <div className="container">
-            <h1 className="page-title">{ page.title }</h1>
-          </div>
-        </section>
-
-        <section className="section__bio triangles triangles--almond">
-          <BioContainer className="container container--sm">
-            <Headshot
-              alt={page.acf.headshot.alt_text}
-              // TODO: this doesn't seem especially FLUID...
-              fluid={page.acf.headshot.localFile.childImageSharp.fluid}
-            />
-            <Bio>{parse(page.acf.bio)}</Bio>
+        <section className="section__heading">
+          <BioContainer className="container">
+            <div>
+              <h1 className="page-title">{ page.title }</h1>
+              <h3>Developer & Design Liason</h3>
+              <Bio>{parse(page.acf.bio)}</Bio>
+              <Link
+                to={"/projects"}
+                className="button"
+              >
+                View Recent Projects
+              </Link>
+            </div>
+            <div className="card__border">
+              <Headshot
+                alt={page.acf.headshot.alt_text}
+                // TODO: this doesn't seem especially FLUID...
+                fluid={page.acf.headshot.localFile.childImageSharp.fluid}
+              />
+            </div>
           </BioContainer>
         </section>
 
-        {page.acf.skills &&
-        <section className="skills">
-          <div className="inner">
-            <div className="container container--sm">
-              <div className="card--overlap">
-                <h2 className="h6">Skills You Want</h2>
-                <ul>
-                  {page.acf.skills.map(({skill}, i) => (
-                    <li key={i}>{skill}</li>
-                  ))}
-                </ul>
-              </div>
+        <section className="py">
+          <div className="container container--sm">
+            <div className="card">
+              <h2>Contact Me</h2>
+              <p>You can find me, my cat, and my plants on <a href="https://instagram.com/lesliespinach" target="_blank" rel="noopener noreferrer">Instagram</a>, and a few of my projects are public on <a href="https://github.com/lesliecrosby" target="_blank" rel="noopener noreferrer">GitHub</a>, but if you send a nice email to <a href="mailto:hello@lesliercrosby.com">hello@lesliercrosby.com</a>, I would be happy to consider giving access to my private repos.</p>
+              <a href="mailto:hello@lesliercrosby.com" className="button">Email Leslie Now</a>
             </div>
           </div>
         </section>
-        }
-
-        <section className="cta">
-          <div className="diamond__wrap">
-            <img
-              src={diamond}
-              alt="diamond decoration"
-            />
-          </div>
-          <Link
-            to={"/projects"}
-            className="button"
-          >
-            View Recent Projects
-          </Link>
-        </section>
-
-        {page.acf.tech &&
-        <section className="tech">
-          <div className="inner">
-            <div className="container">
-              <div className="card--overlap">
-                <h2 className="h6">Tech You Need</h2>
-                <ul>
-                  {page.acf.tech.map(({tech}, i) => (
-                    <li key={i}>{tech}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-        }
       </Layout>
     )
   }

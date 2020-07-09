@@ -1,6 +1,6 @@
-import { React, Component } from "react"
+import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import Layout from "../components/Layout"
@@ -25,7 +25,7 @@ const Post = styled.div`
   }
 `
 
-class BlogIndex extends Component {
+class Blog extends Component {
   render() {
     const data = this.props.data
 
@@ -33,7 +33,7 @@ class BlogIndex extends Component {
       <Layout>
         <SEO title="Blog" />
 
-        <section className="section__title">
+        <section className="section__heading">
           <div className="container">
             <h1 className="page-title">Blog</h1>
           </div>
@@ -48,7 +48,7 @@ class BlogIndex extends Component {
                 <Link to={`blog/${node.slug}`}>
                   <h3>{node.title}</h3>
                 </Link>
-                <div dangerouslySetInnerHTML={{ __html: node.excerpt }}/>
+
                 <Link
                   to={`blog/${node.slug}`}
                   aria-label={`Continue reading ${node.title}`}
@@ -66,12 +66,7 @@ class BlogIndex extends Component {
   }
 }
 
-BlogIndex.propTypes = {
-  data: PropTypes.object.isRequired,
-  edges: PropTypes.array,
-}
-
-export default BlogIndex
+export default Blog
 
 export const pageQuery = graphql`
   query {

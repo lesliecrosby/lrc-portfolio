@@ -22,7 +22,7 @@ class SinglePage extends Component {
           description={page.excerpt}
         />
 
-        <section className="section__title">
+        <section className="section__heading">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
           </div>

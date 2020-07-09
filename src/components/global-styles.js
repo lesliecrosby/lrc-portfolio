@@ -10,8 +10,8 @@ export const colors = {
 
   coral: "#E16F56",
   darkcoral: "#C75B43",
-  sage: "#b6cec3",
-  lightsage: "#9db9b1",
+  lightsage: "#b6cec3",
+  sage: "#9db9b1",
   spruce: "#384A45",
   dusk: "#857E8C",
   lightdusk: "#9196A7",
@@ -27,10 +27,20 @@ export const breakpoints = {
 
 export const container = `
   width: 80%;
+  max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 768px) {
     width: 75%;
-    max-width: 1080px;
+  }
+`
+
+export const containerSm = `
+  width: 80%;
+  max-width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 768px) {
+    width: 75%;
   }
 `

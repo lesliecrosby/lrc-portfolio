@@ -6,18 +6,9 @@ import parse from "html-react-parser"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
-import {
-  breakpoints
-  } from "../components/global-styles"
-
-const BioContainer = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  @media (min-width: ${breakpoints.mobile}) {
-    flex-direction: row;
-  }
-`
+// import {
+//   breakpoints
+//   } from "../components/global-styles"
 
 const JobFacts = styled.div`
   text-align: right;
@@ -32,47 +23,42 @@ class ExperiencePage extends Component {
           description={page.excerpt}
         />
 
-        <section className="section__title">
+        <section className="section__heading">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
           </div>
         </section>
 
-        <section className="section__bio triangles triangles--sage">
-          <BioContainer className="container container--sm">
-          {parse( page.content ) }
-          </BioContainer>
-        </section>
-
         {page.acf.job &&
-        <section className="experience pt">
+        <section className="experience py">
           {page.acf.job.map((job, i) => (
             <div className="container" key={i}>
-              <div className="card--overlap">
-                {job.company_url &&
-                  <a href={job.company_url} target="_blank" rel="noopener noreferrer">
-                    <h2 className="h2">{job.company}</h2>
-                  </a>
-                }
+              <div className="card__border">
+                <div className="card--overlap">
+                  {job.company_url &&
+                    <a href={job.company_url} target="_blank" rel="noopener noreferrer">
+                      {parse(job.company)}
+                    </a>
+                  }
 
-                {!job.company_url &&
-                  <h2 className="h2">{job.company}</h2>
-                }
+                  {!job.company_url &&
+                    <div>{parse(job.company)}</div>
+                  }
 
-                <h3 className="h5">{job.job_title}</h3>
-                <div className="description">{parse(job.description)}</div>
-                <JobFacts>
-                  <h4 className="h6">{job.dates}</h4>
-                  <h4 className="h6">{job.location}</h4>
-                </JobFacts>
-
+                  <h3>{job.job_title}</h3>
+                  <div className="description">{parse(job.description)}</div>
+                  <JobFacts>
+                    <h4 className="h3">{job.dates}</h4>
+                    <h4 className="h3">{job.location}</h4>
+                  </JobFacts>
+                </div>
               </div>
             </div>
           ))}
         </section>
         }
 
-        <section className="cta cta--resume">
+        <section className="py cta">
           <a
             href={page.acf.resume.url.localFile.publicURL}
             target="_blank"

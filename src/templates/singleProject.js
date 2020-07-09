@@ -1,43 +1,25 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import parse from "html-react-parser"
-import Img from "gatsby-image"
-// import { Link } from "gatsby"
+// import Img from "gatsby-image"
 import Layout from "../components/Layout"
 import Article from "../components/Article"
-import Gallery from "../components/Gallery"
 import SEO from "../components/Seo"
-// import TagList from "../components/TagList"
 
-import {
-  colors,
-  container
-} from "../components/global-styles"
-
-const Hero = styled.div`
-  padding-bottom: 80px;
-`
-
-const FeaturedImage = styled.section`
-  background-color: ${colors.lightsage};
-  padding: 80px 0;
-
-  &.container {
-    ${container}
+const Tags = styled.div`
+  margin-bottom: 1rem;
+  h3 {
+    display: inline-block;
+    margin-bottom: 0.5rem;
   }
-`
-
-const ProjectMeta = styled.section`
-  background-color: ${colors.sage};
-  padding: 40px 0;
-
-  & > div {
-    ${container}
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+  h3::after {
+    content: ',';
+    padding-right: 0.5rem;
+  }
+  h3:last-child::after {
+    display: none;
   }
 `
 
@@ -53,71 +35,45 @@ class SingleProject extends Component {
           description={project.excerpt}
         />
 
-        <section className="section__title">
+        <section className="section__heading">
           <div className="container">
-            <h1
-              dangerouslySetInnerHTML={{ __html: project.title }}
-              className="page-title"
-            />
+            <h1 className="page-title">
+              {project.title}
+            </h1>
+            {project.tags &&
+              <Tags>
+                  {project.tags.map(({name}, id) => (
+                    <h3 key={id}>{name}</h3>
+                  ))}
+              </Tags>
+            }
+
+            {parse(project.excerpt)}
+
+            {project.acf.website_link &&
+              <a
+              href={project.acf.website_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button"
+              >
+              View this project in the wild
+            </a>
+            }
           </div>
         </section>
 
-        <Hero>
-          <FeaturedImage>
-            <div className="container">
-              <Img
-                alt={project.featured_media.alt_text}
-                fluid={project.featured_media.localFile.childImageSharp.fluid}
-              />
-            </div>
-          </FeaturedImage>
+        <Article>{parse(project.content)}</Article>
 
-          <ProjectMeta className="project-meta">
-            <div>
-              {project.acf.services_list &&
-              <div>
-                <h3 className="h6">Services</h3>
-                <ul>
-                  {project.acf.services_list.map(({service}, index) => (
-                    <li key={index}>{service}</li>
-                  ))}
-                </ul>
-              </div>
-              }
+        <section className="py cta">
+          <Link
+            to={"/projects"}
+            className="button"
+          >
+            Back to Recent Projects
+          </Link>
+        </section>
 
-              <div>
-                <h3 className="h6">Client</h3>
-                <ul>
-                  <li>{project.title}</li>
-                </ul>
-              </div>
-
-              {project.acf.website_link &&
-              <div>
-                <h3 className="h6">Website</h3>
-                <ul>
-                  <li>
-                    <a
-                      href={project.acf.website_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >
-                      {project.acf.website_link}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              }
-            </div>
-          </ProjectMeta>
-
-          <Article>{parse(project.content)}</Article>
-
-          { project.acf.image_gallery &&
-            <Gallery images={project.acf.image_gallery} />
-          }
-
-        </Hero>
       </Layout>
     )
   }
@@ -135,6 +91,7 @@ export const pageQuery = graphql`
     wordpressWpProjects(id: { eq: $id }) {
       wordpress_id
       title
+      excerpt
       content
       date
       acf {
@@ -142,33 +99,11 @@ export const pageQuery = graphql`
           service
         }
         website_link
-        image_gallery {
-          wordpress_id
-          title
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                src
-              }
-            }
-          }
-          alt_text
-        }
       }
       tags {
         id
         name
-      }
-      featured_media {
-        source_url
-        alt_text
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1024) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        # path
       }
     }
     site {

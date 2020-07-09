@@ -29,14 +29,14 @@ const HeaderInner = styled.div`
 const NavMenu = styled.nav`
   position: fixed;
   top: 0;
-  width: 50%;
+  width: 75%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: left 250ms ease;
-  left: ${(props) => props.menuOpen ? '50%' : '100%'};
+  left: ${(props) => props.menuOpen ? '25%' : '100%'};
   background-color: ${colors.darkcoral};
 
   @media (min-width: ${breakpoints.tablet}) {
@@ -67,7 +67,8 @@ const NavList = styled.ul`
     transition: border 200ms ease;
 
     &:hover,
-    &[aria-current="page"] {
+    &[aria-current="page"],
+    &.current {
       border-bottom: 1px solid ${colors.coral};
     }
   }
@@ -186,13 +187,13 @@ class Header extends Component {
           <NavMenu menuOpen={this.state.menuOpen}>
             <NavList>
               <li>
-                <h3><Link to="/">About</Link></h3>
+                <h3><Link to="/" activeClassName="current">About</Link></h3>
               </li>
               <li>
-                <h3><Link to="/projects">Projects</Link></h3>
+                <h3><Link to="/projects" activeClassName="current" partiallyActive={true}>Projects</Link></h3>
               </li>
               <li>
-                <h3><Link to="/experience">Experience</Link></h3>
+                <h3><Link to="/experience" activeClassName="current">Experience</Link></h3>
               </li>
               <li>
                 <h3>

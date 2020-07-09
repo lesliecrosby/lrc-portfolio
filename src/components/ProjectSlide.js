@@ -10,7 +10,7 @@ import base from "../images/base.svg"
 
 const ProjectItem = styled.article`
   min-height: 100vh;
-  background-color: ${colors.dusk};
+  background-color: ${colors.darkcoral};
   padding: 80px 0;
   overflow: hidden;
 
@@ -103,14 +103,22 @@ const ProjectInfo = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  color: ${colors.white};
+
+  .button {
+    background-color: ${colors.gray800};
+    border-bottom: 4px solid ${colors.black};
+    &:hover {
+      background-color: ${colors.black};
+      border-bottom: 4px solid ${colors.gray800};
+    }
+  }
+
   @media (min-width: ${breakpoints.mobile}) {
     position: absolute;
     width: 50%;
     height: 100%;
     top: 0;
     right: 0;
-    background-color: ${colors.lightdusk}70;
     padding: 2rem 10% 2rem 12.5%;
     display: flex;
     z-index: 1;

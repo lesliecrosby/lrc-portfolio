@@ -2,25 +2,19 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import {
-  breakpoints,
+  containerSm,
   colors,
-  container,
 } from "./global-styles"
 
 const ArticleContent = styled.article`
-  ${container}
-  padding: 1.5rem;
-  @media (min-width: ${breakpoints.mobile}) {
-    padding: 3rem;
-  }
-  a {
-    color: ${colors.gray800};
-    text-decoration: none;
+
+  *:not(img):not(figure) {
+    ${containerSm}
   }
   img {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
     display: block;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
   code {
     background: rgba(130, 197, 173, 0.3);
@@ -41,7 +35,7 @@ const ArticleContent = styled.article`
 class Article extends Component {
   render() {
     return (
-      <ArticleContent>
+      <ArticleContent className="py">
         {this.props.children}
       </ArticleContent>
     )

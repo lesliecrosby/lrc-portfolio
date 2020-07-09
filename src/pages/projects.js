@@ -62,10 +62,10 @@ class Projects extends Component {
       <Layout>
         <SEO title="Recent Projects" />
 
-        <section className="section__title">
+        <section className="section__heading">
           <div className="container">
             <h1 className="page-title">
-              Projects
+              Recent Projects
             </h1>
           </div>
         </section>
@@ -75,7 +75,7 @@ class Projects extends Component {
             <ProjectSlide
               title={node.title}
               description={node.excerpt}
-              target={`projects/${node.slug}`}
+              target={`${node.slug}`}
               key={node.id}
               tags={node.tags.map(tag => tag.name)}
               image={node.featured_media.localFile.childImageSharp.fluid}

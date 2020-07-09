@@ -6,22 +6,22 @@ import parse from "html-react-parser"
 import Layout from "../components/Layout"
 import Article from "../components/Article"
 import SEO from "../components/Seo"
-import BlogComments from "../components/comments"
+// import BlogComments from "../components/comments"
 // import {
 //   container
 // } from "../components/global-styles"
 
-class SingleBlog extends Component {
+class SinglePost extends Component {
   render() {
     const post = this.props.data.wordpressPost
-    const comments = this.props.data.allWordpressWpComments
+    // const comments = this.props.data.allWordpressWpComments
     return (
       <Layout>
         <SEO
           title={post.title}
           description={post.excerpt}
         />
-        <section className="section__title">
+        <section className="section__heading">
           <div className="container">
             <h1
               dangerouslySetInnerHTML={{ __html: post.title }}
@@ -36,42 +36,26 @@ class SingleBlog extends Component {
           </div>
         </section>
 
-        <BlogComments comments={comments} post={post} />
       </Layout>
     )
   }
 }
 
-SingleBlog.propTypes = {
+SinglePost.propTypes = {
   data: PropTypes.object.isRequired,
   edges: PropTypes.array,
 }
 
-export default SingleBlog
+export default SinglePost
 
 export const pageQuery = graphql`
-  query($id: String!, $postId: Int!) {
+  query($id: String!) {
     wordpressPost(id: { eq: $id }) {
       wordpress_id
       title
       content
       excerpt
       date
-    }
-    allWordpressWpComments(filter: { post: { eq: $postId } }) {
-      edges {
-        node {
-          id
-          wordpress_id
-          post
-          author
-          author_name
-          author_url
-          date(formatString: "MMMM DD, YYYY")
-          content
-          wordpress_parent
-        }
-      }
     }
     site {
       siteMetadata {

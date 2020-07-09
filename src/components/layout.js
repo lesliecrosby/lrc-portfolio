@@ -111,7 +111,7 @@ const GlobalStyle = createGlobalStyle`
   h4, .h4,
   h6, .h6 {
     font-family: "Montserrat", sans-serif;
-    font-weight: bold;
+    font-weight: 700;
   }
 
   h5, .h5 {
