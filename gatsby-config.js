@@ -50,7 +50,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'lesliercrosby.local',
+        baseUrl: process.env.BASE_URL,
         hostingWPCOM: false,
         protocol: 'http',
         useACF: true,
