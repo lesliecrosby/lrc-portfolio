@@ -115,7 +115,6 @@ export const pageQuery = graphql`
             name
           }
           featured_media {
-            source_url
             alt_text
             localFile {
               childImageSharp {

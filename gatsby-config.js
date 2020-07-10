@@ -68,7 +68,7 @@ module.exports = {
           jwt_user: process.env.JWT_USER,
           jwt_pass: process.env.JWT_PASSWORD,
         },
-        verboseOutput: false,
+        verboseOutput: true,
         keepMediaSizes: false,
         // use a custom normalizer which is applied after the built-in ones. (Map custom taxonomies to cpts)
         // normalizer: function({ entities }) {
