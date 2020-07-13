@@ -38,15 +38,12 @@ module.exports = {
         name: `Leslie R Crosby`,
         short_name: `Leslie R Crosby`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#C75B43`,
+        theme_color: `#C75B43`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -54,35 +51,14 @@ module.exports = {
         hostingWPCOM: false,
         protocol: 'http',
         useACF: true,
-        // includedRoutes: [
-        //   "**/categories",
-        //   "**/comments",
-        //   "**/posts",
-        //   "**/pages",
-        //   "**/media",
-        //   "**/tags",
-        //   "**/taxonomies",
-        //   "**/projects",
-        // ],
         auth: {
           jwt_user: process.env.JWT_USER,
           jwt_pass: process.env.JWT_PASSWORD,
         },
         verboseOutput: false,
         keepMediaSizes: false,
-        // use a custom normalizer which is applied after the built-in ones. (Map custom taxonomies to cpts)
-        // normalizer: function({ entities }) {
-        //   return entities
-        // },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-remote-images`,
-    //   options: {
-    //     nodeType: "wordpressWpProjects",
-    //     imagePath: "featured_media.source_url",
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
