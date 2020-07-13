@@ -91,7 +91,7 @@ class IndexPage extends Component {
           <div className="container container--sm">
             <div className="card">
               <h2>Contact Me</h2>
-              <p>You can find me, my cat, and my plants on <a href="https://instagram.com/lesliespinach" target="_blank" rel="noopener noreferrer">Instagram</a>, and a few of my projects are public on <a href="https://github.com/lesliecrosby" target="_blank" rel="noopener noreferrer">GitHub</a>, but if you send a nice email to <a href="mailto:hello@lesliercrosby.com">hello@lesliercrosby.com</a>, I would be happy to consider giving access to my private repos.</p>
+              <p>You can find me, my cat, and my plants on <a href="https://instagram.com/lesliespinach" target="_blank" rel="noopener noreferrer">Instagram</a>, and a few of my projects are public on <a href="https://github.com/lesliecrosby" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
               <a href="mailto:hello@lesliercrosby.com" className="button">Email Leslie Now</a>
             </div>
           </div>
