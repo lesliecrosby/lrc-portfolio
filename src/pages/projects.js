@@ -7,9 +7,9 @@ import {
 import { graphql } from "gatsby"
 // import Img from "gatsby-image"
 
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
-import ProjectSlide from "../components/ProjectSlide"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import ProjectSlide from "../components/projectSlide"
 
 // const ScrollIndicators = styled.aside`
 //   position: fixed;

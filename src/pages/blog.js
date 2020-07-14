@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-// import PropTypes from "prop-types"
 import styled from "styled-components"
-
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import {
   colors,
 } from "../components/global-styles"

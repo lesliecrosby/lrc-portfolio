@@ -4,9 +4,9 @@ import PropTypes from "prop-types"
 import parse from "html-react-parser"
 // import Img from "gatsby-image"
 
-import Layout from "../components/Layout"
-import Article from "../components/Article"
-import SEO from "../components/Seo"
+import Layout from "../components/layout"
+import Article from "../components/article"
+import SEO from "../components/seo"
 import {
   // colors,
   // container

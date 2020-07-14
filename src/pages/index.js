@@ -5,8 +5,8 @@ import styled from "styled-components"
 import parse from "html-react-parser"
 import Img from "gatsby-image"
 
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import {
   breakpoints

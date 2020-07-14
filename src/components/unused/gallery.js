@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import {
   container,
-  } from "../components/global-styles"
+  } from "../global-styles"
 
 const Section = styled.section`
   ${container}

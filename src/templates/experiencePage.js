@@ -4,8 +4,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import parse from "html-react-parser"
 
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 // import {
 //   breakpoints
 //   } from "../components/global-styles"

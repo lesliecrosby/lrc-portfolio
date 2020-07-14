@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle } from "styled-components"
 
-import Header from "./Header"
-import Footer from "./Footer"
+import Header from "./header"
+import Footer from "./footer"
 import "../styles/styles.scss"
 
 // moved GlobalStyle w/fonts below for sanity
