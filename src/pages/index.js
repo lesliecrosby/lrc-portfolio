@@ -60,16 +60,20 @@ const Headshot = styled(Img)`
 class IndexPage extends Component {
   render() {
     const page = this.props.data.wordpressPage
+    const site = this.props.data.site
     return (
       <Layout>
-        <SEO title={page.title} />
+        <SEO
+          title={page.title}
+          description={site.siteMetadata.description}
+        />
 
         <section className="section__heading">
           <BioContainer className="container">
             <div>
               <h1 className="page-title">{ page.title }</h1>
-              <h3>Developer & Design Liason</h3>
-              <Bio>{parse(page.acf.bio)}</Bio>
+              <h3>{site.siteMetadata.description}</h3>
+              <Bio>{parse(page.content)}</Bio>
               <Link
                 to={"/projects"}
                 className="button"
@@ -79,9 +83,9 @@ class IndexPage extends Component {
             </div>
             <div className="card__border">
               <Headshot
-                alt={page.acf.headshot.alt_text}
+                alt={page.featured_media.alt_text}
                 // TODO: this doesn't seem especially FLUID...
-                fluid={page.acf.headshot.localFile.childImageSharp.fluid}
+                fluid={page.featured_media.localFile.childImageSharp.fluid}
               />
             </div>
           </BioContainer>
@@ -114,30 +118,20 @@ export const pageQuery = graphql`
       title
       content
       date
-      acf {
-        headshot {
-          source_url
-          alt_text
-          localFile {
-            childImageSharp {
+      featured_media {
+        localFile {
+          childImageSharp {
               fluid(maxWidth: 420) {
                 ...GatsbyImageSharpFluid
               }
             }
-          }
-        }
-        bio
-        skills {
-          skill
-        }
-        tech {
-          tech
         }
       }
     }
     site {
       siteMetadata {
         title
+        description
       }
     }
   }

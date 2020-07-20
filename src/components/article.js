@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 
 import {
+  breakpoints,
   containerSm,
   colors,
 } from "./global-styles"
@@ -15,6 +16,10 @@ const ArticleContent = styled.article`
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
     display: block;
     margin: 2rem auto;
+
+    @media (min-width: ${breakpoints.desktop}) {
+      margin: 6rem auto;
+    }
   }
   code {
     background: rgba(130, 197, 173, 0.3);
