@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Leslie R Crosby`,
-    description: `Developer and Design Liason`,
+    description: `Developer and Design Liaison`,
     author: `@lesliespinach`,
     siteUrl: process.env.SITE_URL,
   },
@@ -49,7 +49,7 @@ module.exports = {
       options: {
         baseUrl: process.env.BASE_URL,
         hostingWPCOM: false,
-        protocol: 'http',
+        protocol: 'https',
         useACF: true,
         auth: {
           jwt_user: process.env.JWT_USER,
