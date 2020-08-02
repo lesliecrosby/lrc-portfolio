@@ -187,7 +187,10 @@ class Header extends Component {
           <NavMenu menuOpen={this.state.menuOpen}>
             <NavList>
               <li>
-                <h3><Link to="/" activeClassName="current">About</Link></h3>
+                <h3><Link to="/" activeClassName="current">Home</Link></h3>
+              </li>
+              <li>
+                <h3><Link to="/about-me" activeClassName="current">About Me</Link></h3>
               </li>
               <li>
                 <h3><Link to="/projects" activeClassName="current" partiallyActive={true}>Projects</Link></h3>

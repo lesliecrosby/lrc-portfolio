@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import parse from "html-react-parser"
+// import parse from "html-react-parser"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -64,16 +64,18 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO
-          title={page.title}
-          description={site.siteMetadata.description}
+          title={ site.siteMetadata.title }
+          description={ site.siteMetadata.description }
         />
 
         <section className="section__heading">
           <BioContainer className="container">
             <div>
-              <h1 className="page-title">{ page.title }</h1>
-              <h3>{site.siteMetadata.description}</h3>
-              <Bio>{parse(page.content)}</Bio>
+              <h1 className="page-title">{ site.siteMetadata.title }</h1>
+              <h3>{ site.siteMetadata.description }</h3>
+              <Bio>
+                <p>Hi, I'm Leslie, an experienced web developer with a strong background in design. I live for solving problems, I write eloquent code, and I make websites that work. If I sound like the kind of person you would like to build your next project, send me an email (<a href="mailto:hello@lesliercrosby.com">hello@lesliercrosby.com</a>).</p>
+              </Bio>
               <Link
                 to={"/projects"}
                 className="button"
@@ -83,9 +85,9 @@ class IndexPage extends Component {
             </div>
             <div className="card__border">
               <Headshot
-                alt={page.featured_media.alt_text}
+                alt={ page.featured_media.alt_text }
                 // TODO: this doesn't seem especially FLUID...
-                fluid={page.featured_media.localFile.childImageSharp.fluid}
+                fluid={ page.featured_media.localFile.childImageSharp.fluid }
               />
             </div>
           </BioContainer>
@@ -95,8 +97,8 @@ class IndexPage extends Component {
           <div className="container container--sm">
             <div className="card">
               <h2>Contact Me</h2>
-              <p>You can find me, my cat, and my plants on <a href="https://instagram.com/lesliespinach" target="_blank" rel="noopener noreferrer">Instagram</a>, and a selection of my projects are public on <a href="https://github.com/lesliecrosby" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
-              <a href="mailto:hello@lesliercrosby.com" className="button">Email Leslie Now</a>
+              <p>You can find me on <a href="https://instagram.com/lesliespinach" target="_blank" rel="noopener noreferrer">Instagram</a> or <a href="https://www.linkedin.com/in/leslie-r-crosby-42181332/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and a selection of my projects are public on <a href="https://github.com/lesliecrosby" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+              <a href="mailto:hello@lesliercrosby.com" className="button">Email Me Now</a>
             </div>
           </div>
         </section>
@@ -114,10 +116,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    wordpressPage(title: {eq: "Leslie Crosby"}) {
-      title
-      content
-      date
+    wordpressPage(title: {eq: "About Me"}) {
       featured_media {
         localFile {
           childImageSharp {

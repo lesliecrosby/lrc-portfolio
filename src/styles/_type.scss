@@ -24,7 +24,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  line-height: 1.75;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
   color: inherit;
@@ -66,6 +66,7 @@ h6, .h6 {
 
 h3, .h3 {
   font-size: 0.875rem; // 14px
+  line-height: 1.75;
   text-transform: uppercase;
   letter-spacing: 0.25rem; // 4px
   margin-bottom: 1.25rem; // 20px
@@ -77,8 +78,9 @@ h3, .h3 {
 
 h4, .h4 {
   font-size: 1.125rem; // 18px
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.0625rem; // 1px
+  letter-spacing: 0.25rem; // 4px
   margin-bottom: 1.25rem; // 20px
 }
 
@@ -101,6 +103,10 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1.25rem; // 20px
+
+  @media (max-width: $mobile) {
+    hyphens: auto;
+  }
 }
 
 p a {

@@ -65,7 +65,7 @@ class SingleProject extends Component {
 
         <Article>{parse(project.content)}</Article>
 
-        <section className="py cta">
+        <section className="cta">
           <Link
             to={"/projects"}
             className="button"

@@ -2,15 +2,8 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import parse from "html-react-parser"
-// import Img from "gatsby-image"
-
 import Layout from "../components/layout"
-import Article from "../components/article"
 import SEO from "../components/seo"
-import {
-  // colors,
-  // container
-  } from "../components/global-styles"
 
 class SinglePage extends Component {
   render() {
@@ -18,25 +11,17 @@ class SinglePage extends Component {
     return (
       <Layout>
         <SEO
-          title={page.title}
-          description={page.excerpt}
+          title={ page.title }
+          description={ page.excerpt }
         />
 
         <section className="section__heading">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
+            { parse( page.content ) }
           </div>
         </section>
 
-        <div className="container">
-          <section>
-            {/* <Img
-              alt={page.featured_media.alt_text}
-              fluid={page.featured_media.localFile.childImageSharp.fluid}
-            /> */}
-          </section>
-          <Article>{parse(page.content)}</Article>
-        </div>
       </Layout>
     )
   }

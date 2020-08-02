@@ -19,19 +19,19 @@ class ExperiencePage extends Component {
     return (
       <Layout>
         <SEO
-          title={page.title}
-          description={page.excerpt}
+          title={ page.title }
+          description={ page.excerpt }
         />
 
         <section className="section__heading">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
-            {parse(page.content)}
+            { parse(page.content) }
           </div>
         </section>
 
         {page.acf.job &&
-        <section className="experience py">
+        <section className="experience">
           {page.acf.job.map((job, i) => (
             <div className="container" key={i}>
               <div className="card__border">
@@ -59,7 +59,7 @@ class ExperiencePage extends Component {
         </section>
         }
 
-        <section className="py cta">
+        <section className="cta">
           <a
             href={page.acf.resume.url.localFile.publicURL}
             target="_blank"

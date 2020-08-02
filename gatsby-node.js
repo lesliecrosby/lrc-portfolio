@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allPages: allWordpressPage(filter: {title: {ne: "Leslie Crosby"}}) {
+      allWordpressPage {
         edges {
           node {
             id
@@ -65,7 +65,8 @@ exports.createPages = async ({ graphql, actions }) => {
   // Access query posts via object destructuring
   const { allWordpressPost } = posts.data
   const { allWordpressWpProjects } = posts.data
-  const allWordpressPage = posts.data.allPages
+  const { allWordpressPage } = posts.data
+  // const allWordpressPage = posts.data.allPages
   const experiencePage = posts.data.experiencePage
 
   const postTemplate = path.resolve(`./src/templates/singlePost.js`)

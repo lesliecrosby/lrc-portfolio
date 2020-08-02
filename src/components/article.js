@@ -40,7 +40,7 @@ const ArticleContent = styled.article`
 class Article extends Component {
   render() {
     return (
-      <ArticleContent className="py">
+      <ArticleContent className="pb">
         {this.props.children}
       </ArticleContent>
     )

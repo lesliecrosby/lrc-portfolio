@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import parse from "html-react-parser"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Link } from "gatsby"
@@ -155,10 +156,10 @@ class ProjectSlide extends Component {
         </ProjectPreview>
 
         <ProjectInfo>
-          <h2 className="h3">
+          <h2 className="h4">
             {this.props.title}
           </h2>
-          <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
+          <div>{ parse(this.props.description) }</div>
           <TagList>
             {this.props.tags.map(({tag}, i) => (
               <li key={i}>{tag}</li>
