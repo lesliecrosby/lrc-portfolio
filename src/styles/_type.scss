@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700,800&display=swap');
 
 html {
-  // font-family: sans-serif;
+  font-family: 'Tofino-Wide-Book', sans-serif;
+  font-style: normal;
+  font-weight: 300;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-size: 100%;
@@ -22,7 +24,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  line-height: 1.25;
+  line-height: 1.75;
   margin: 0;
   padding: 0;
   color: inherit;
@@ -30,6 +32,8 @@ h6, .h6 {
 }
 
 h1, .h1 {
+  font-family: 'Tofino-Wide-Black', sans-serif;
+  font-weight: 800;
   font-size: 1.875rem; // 30px
   letter-spacing: 0.25rem; // 4px
   margin-bottom: 1.25rem; // 20px
@@ -41,6 +45,8 @@ h1, .h1 {
 }
 
 h2, .h2 {
+  font-family: 'Tofino-Wide-Black', sans-serif;
+  font-weight: 800;
   font-size: 1.375rem; // 22px
   letter-spacing: 0.21875rem; // 3.5px
   margin-bottom: 1.25rem; // 20px
@@ -49,6 +55,13 @@ h2, .h2 {
     font-size: 1.75rem; // 28px
     letter-spacing: 0.21875rem; // 3.5px
   }
+}
+
+h3, .h3,
+h4, .h4,
+h6, .h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 h3, .h3 {
@@ -70,6 +83,8 @@ h4, .h4 {
 }
 
 h5, .h5 {
+  font-family: 'Tofino-Condensed', sans-serif;
+  font-weight: 500;
   font-size: 1.25rem; // 20px
   text-transform: uppercase;
   letter-spacing: 0.1875rem; // 3px
@@ -105,7 +120,7 @@ p a {
   box-shadow: none;
   text-shadow: none;
   color: $white;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 0.625rem; // 10px

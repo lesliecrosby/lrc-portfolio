@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Leslie R Crosby`,
-    description: `Developer and Design Liaison`,
+    description: `Developer and UI Engineer`,
     author: `@lesliespinach`,
     siteUrl: process.env.SITE_URL,
   },
@@ -16,6 +16,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fonts`,
+        path: `${__dirname}/src/fonts`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -49,7 +56,7 @@ module.exports = {
       options: {
         baseUrl: process.env.BASE_URL,
         hostingWPCOM: false,
-        protocol: 'https',
+        protocol: process.env.SITE_PROTOCOL,
         useACF: true,
         auth: {
           jwt_user: process.env.JWT_USER,
