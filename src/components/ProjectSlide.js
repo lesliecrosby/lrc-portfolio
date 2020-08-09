@@ -126,9 +126,19 @@ const ProjectInfo = styled.section`
   }
 `
 
-const TagList = styled.ul`
-  list-style: none;
-  padding-left: 0;
+const Tags = styled.div`
+  margin-bottom: 1rem;
+  h3 {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+  }
+  h3::after {
+    content: ',';
+    padding-right: 0.5rem;
+  }
+  h3:last-child::after {
+    display: none;
+  }
 `
 
 class ProjectSlide extends Component {
@@ -160,11 +170,11 @@ class ProjectSlide extends Component {
             {this.props.title}
           </h2>
           <div>{ parse(this.props.description) }</div>
-          <TagList>
-            {this.props.tags.map(({tag}, i) => (
-              <li key={i}>{tag}</li>
+          <Tags>
+            {this.props.tags.map((tag, id) => (
+              <h3 key={id}>{tag.name}</h3>
             ))}
-          </TagList>
+          </Tags>
           <Link to={this.props.target} className="button button--sm">View Project</Link>
         </ProjectInfo>
       </ProjectItem>

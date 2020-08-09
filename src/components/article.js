@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import {
   breakpoints,
+  container,
   containerSm,
   colors,
 } from "./global-styles"
@@ -11,6 +12,12 @@ const ArticleContent = styled.article`
 
   *:not(img):not(figure) {
     ${containerSm}
+  }
+  figure.alignwide.size-large {
+    ${container}
+    img {
+      width: 100%;
+    }
   }
   img {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);

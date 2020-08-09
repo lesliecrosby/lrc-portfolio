@@ -26,7 +26,6 @@ class ExperiencePage extends Component {
         <section className="section__heading">
           <div className="container">
             <h1 className="page-title">{ page.title }</h1>
-            { parse(page.content) }
           </div>
         </section>
 

@@ -1,47 +1,14 @@
 import React, { Component } from "react"
-// import styled from "styled-components"
 import {
-  // CSSTransition,
   TransitionGroup
 } from 'react-transition-group';
 import { graphql } from "gatsby"
-// import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectSlide from "../components/ProjectSlide"
 
-// const ScrollIndicators = styled.aside`
-//   position: fixed;
-//   z-index: 1000;
-//   width: 40px;
-//   height: 100%;
-//   top: 0;
-//   right: 0;
-
-//   & ul {
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: centers;
-//   }
-// `
-
 class Projects extends Component {
-
-// begin scroll - past some sort of offset from top
-// snap top of first project to window top
-// use CSS vh, etc to control project height and width
-// track user location in list of projects via scroll indicator bullets
-// thus, we need to create a scroll indicator bullet list corresponding to list of projects; also these bullets need to visibly reflect state of current project (active vs. inactive)
-// at end of list, snap footer into view
-
-  // state = {
-  //   var projectVisible = 0
-
-  // };
 
   constructor(props) {
     super(props);
@@ -77,23 +44,13 @@ class Projects extends Component {
               description={node.excerpt}
               target={`${node.slug}`}
               key={node.id}
-              tags={node.tags.map(tag => tag.name)}
+              tags={node.tags}
               image={node.featured_media.localFile.childImageSharp.fluid}
               imageAlt={node.featured_media.alt_text}
             />
           ))}
         </TransitionGroup>
 
-        {/* <ScrollIndicators>
-          <TransitionGroup component="ul">
-            {data.allWordpressWpProjects.edges.map(({ node, i }) => (
-              <li
-                key={node.id}
-              >
-              </li>
-            ))}
-          </TransitionGroup>
-        </ScrollIndicators> */}
       </Layout>
     )
   }

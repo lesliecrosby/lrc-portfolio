@@ -69,7 +69,7 @@ section.py:last-child {
     background-color: $coral;
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
-        background-color: rgba($darkcoral, 0.8);
+        background-color: rgba($darkcoral, 0.9);
       }
     }
   }

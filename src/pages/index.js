@@ -70,19 +70,17 @@ class IndexPage extends Component {
 
         <section className="section__heading">
           <BioContainer className="container">
-            <div>
+            <Bio>
               <h1 className="page-title">{ site.siteMetadata.title }</h1>
               <h3>{ site.siteMetadata.description }</h3>
-              <Bio>
-                <p>Hi, I'm Leslie, an experienced web developer with a strong background in design. I live for solving problems, I write eloquent code, and I make websites that work. If I sound like the kind of person you would like to build your next project, send me an email (<a href="mailto:hello@lesliercrosby.com">hello@lesliercrosby.com</a>).</p>
-              </Bio>
+              <p>Hi, I'm Leslie, an experienced web developer with a strong background in design. I live for solving problems, I write eloquent code, and I make websites that work. If I sound like the kind of person you would like to build your next project, send me an email (<a href="mailto:hello@lesliercrosby.com">hello@lesliercrosby.com</a>).</p>
               <Link
                 to={"/projects"}
                 className="button"
               >
                 View Recent Projects
               </Link>
-            </div>
+            </Bio>
             <div className="card__border">
               <Headshot
                 alt={ page.featured_media.alt_text }

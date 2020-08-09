@@ -95,15 +95,11 @@ export const pageQuery = graphql`
       content
       date
       acf {
-        services_list {
-          service
-        }
         website_link
       }
       tags {
         id
         name
-        # path
       }
     }
     site {
