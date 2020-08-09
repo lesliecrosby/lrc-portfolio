@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // We want to create a detailed page for each
   // post node. We'll just use the WordPress Slug for the slug.
   // The Post ID is prefixed with 'POST_'
-  allWordpressPost.edges.forEach(edge => {
+  allWordpressPost.edges.forEach( edge => {
     createPage({
       path: `/blog/${edge.node.slug}/`,
       component: slash(postTemplate),
@@ -86,12 +86,17 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  allWordpressWpProjects.edges.forEach(edge => {
+  allWordpressWpProjects.edges.forEach( (edge, index) => {
+    const previous = index === 0 ? null : allWordpressWpProjects.edges[index - 1].node
+    const next = index === allWordpressWpProjects.edges.length - 1 ? null : allWordpressWpProjects.edges[index + 1].node
+
     createPage({
       path: `/projects/${edge.node.slug}/`,
       component: slash(projectsTemplate),
       context: {
         id: edge.node.id,
+        previous,
+        next,
       },
     })
   })

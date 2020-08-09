@@ -117,6 +117,14 @@ p a {
   }
 }
 
+li a {
+  color: $darkcoral;
+
+  &:hover {
+    color: $coral;
+  }
+}
+
 .button {
   display: inline-block;
   background-color: $coral;
@@ -147,5 +155,14 @@ p a {
   &:hover {
     background-color: $darkcoral;
     border-bottom: 4px solid $coral;
+  }
+
+  &.button--alt {
+    background-color: $gray800;
+    border-bottom: 4px solid $gray500;
+    &:hover {
+      background-color: $black;
+      border-bottom: 4px solid $coral;
+    }
   }
 }

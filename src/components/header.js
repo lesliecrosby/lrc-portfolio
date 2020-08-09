@@ -61,6 +61,7 @@ const NavList = styled.ul`
   }
 
   a {
+    color: ${colors.black};
     text-decoration: none;
     padding: 8px 0 8px 2px;
     border-bottom: 1px solid transparent;
@@ -69,6 +70,7 @@ const NavList = styled.ul`
     &:hover,
     &[aria-current="page"],
     &.current {
+      color: ${colors.black};
       border-bottom: 1px solid ${colors.coral};
     }
   }

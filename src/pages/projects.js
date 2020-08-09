@@ -56,7 +56,7 @@ class Projects extends Component {
           ))}
         </TransitionGroup>
 
-        <section className="section__heading">
+        <section className="py">
           <div className="container">
             <h3>More Projects:</h3>
             <ul>

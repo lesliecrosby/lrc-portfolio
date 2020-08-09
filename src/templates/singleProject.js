@@ -27,7 +27,7 @@ class SingleProject extends Component {
   render() {
 
     const project = this.props.data.wordpressWpProjects
-
+    const { previous, next } = this.props.pageContext
     return (
       <Layout>
         <SEO
@@ -66,9 +66,29 @@ class SingleProject extends Component {
         <Article>{parse(project.content)}</Article>
 
         <section className="cta">
+          { previous &&
+              <Link
+                to={ "/projects/" + previous.slug }
+                className="button"
+              >
+                ← Prev Project
+              </Link>
+          }
+
+          { next &&
+            <Link
+              to={ "/projects/" + next.slug }
+              className="button"
+            >
+              Next Project →
+            </Link>
+          }
+        </section>
+
+        <section className="cta">
           <Link
             to={"/projects"}
-            className="button"
+            className="button button--alt"
           >
             Back to Recent Projects
           </Link>
@@ -87,8 +107,8 @@ SingleProject.propTypes = {
 export default SingleProject
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressWpProjects(id: { eq: $id }) {
+  query ( $id: String! ) {
+    wordpressWpProjects( id: { eq: $id } ) {
       wordpress_id
       title
       excerpt
