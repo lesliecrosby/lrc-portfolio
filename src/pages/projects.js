@@ -3,11 +3,16 @@ import {
   TransitionGroup
 } from 'react-transition-group';
 import { graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectSlide from "../components/ProjectSlide"
+import styled from "styled-components"
+import arrow from "../images/arrow-up-right.svg"
 
+const Arrow = styled.img`
+  margin-left: 0.25rem;
+  vertical-align: middle;
+`
 class Projects extends Component {
 
   constructor(props) {
@@ -50,6 +55,23 @@ class Projects extends Component {
             />
           ))}
         </TransitionGroup>
+
+        <section className="section__heading">
+          <div className="container">
+            <h3>More Projects:</h3>
+            <ul>
+              <li><a href="https://www.annascott.co/" target="_blank" rel="noopener noreferrer">Anna Scott Coaching (Webflow)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://www.blinkbeautyatx.com/" target="_blank" rel="noopener noreferrer">Blink Beauty (Webflow)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://bomeforwomen.com/" target="_blank" rel="noopener noreferrer">Bomē (Shopify)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://www.fyoog.com/" target="_blank" rel="noopener noreferrer">FYOOG Architecture (Webflow)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://www.hollykrivo.com/" target="_blank" rel="noopener noreferrer">Holly Krivo Coaching (Webflow)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://www.seasonsleadership.com/" target="_blank" rel="noopener noreferrer">Seasons Leadership Program (Webflow)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://startupfashion.com/" target="_blank" rel="noopener noreferrer">StartUp Fashion (WordPress)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="https://theturkgroup.com/" target="_blank" rel="noopener noreferrer">The Turk Group (WordPress)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+              <li><a href="http://www.usvetscareernetwork.com/" target="_blank" rel="noopener noreferrer">U.S.VETS Career Network (WordPress)<Arrow src={ arrow } alt="Arrow icon" /></a></li>
+            </ul>
+          </div>
+        </section>
 
       </Layout>
     )

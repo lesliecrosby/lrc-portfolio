@@ -84,7 +84,6 @@ class IndexPage extends Component {
             <div className="card__border">
               <Headshot
                 alt={ page.featured_media.alt_text }
-                // TODO: this doesn't seem especially FLUID...
                 fluid={ page.featured_media.localFile.childImageSharp.fluid }
               />
             </div>

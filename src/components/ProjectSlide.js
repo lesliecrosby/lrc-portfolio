@@ -127,7 +127,7 @@ const ProjectInfo = styled.section`
 `
 
 const Tags = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   h3 {
     display: inline-block;
     margin-bottom: 0.25rem;
@@ -175,7 +175,7 @@ class ProjectSlide extends Component {
               <h3 key={id}>{tag.name}</h3>
             ))}
           </Tags>
-          <Link to={this.props.target} className="button button--sm">View Project</Link>
+          <Link to={this.props.target} className="button button--sm">Read About This Project</Link>
         </ProjectInfo>
       </ProjectItem>
     )

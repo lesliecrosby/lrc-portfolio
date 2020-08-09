@@ -38,6 +38,7 @@ const SocialsList = styled.ul`
 `
 
 const Credit = styled.div`
+  text-align: right;
   font-size: 0.75rem;
 `
 
@@ -89,7 +90,8 @@ const Footer = ({ siteTitle }) => (
 
       </SocialsList>
       <Credit>
-        © {new Date().getFullYear()}, Leslie R Crosby
+        <div>Built with <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby.js</a></div>
+        <div>© {new Date().getFullYear()}, Leslie R Crosby</div>
       </Credit>
 
     </FooterInner>
