@@ -32,12 +32,12 @@ class Projects extends Component {
 
     return (
       <Layout>
-        <SEO title="Recent Projects" />
+        <SEO title="Featured Projects" />
 
         <section className="section__heading">
           <div className="container">
             <h1 className="page-title">
-              Recent Projects
+              Featured Projects
             </h1>
           </div>
         </section>

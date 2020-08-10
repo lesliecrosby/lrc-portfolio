@@ -21,6 +21,9 @@ const Tags = styled.div`
   h3:last-child::after {
     display: none;
   }
+  h3.tags__heading::after {
+    content: ':';
+  }
 `
 
 class SingleProject extends Component {
@@ -42,9 +45,10 @@ class SingleProject extends Component {
             </h1>
             {project.tags &&
               <Tags>
-                  {project.tags.map(({name}, id) => (
-                    <h3 key={id}>{name}</h3>
-                  ))}
+                <h3 className="tags__heading">Tech Used</h3>
+                {project.tags.map(({name}, id) => (
+                  <h3 key={id}>{name}</h3>
+                ))}
               </Tags>
             }
 
@@ -55,7 +59,7 @@ class SingleProject extends Component {
               href={project.acf.website_link}
               target="_blank"
               rel="noopener noreferrer"
-              className="button"
+              className="button mt-1"
               >
               View this project in the wild
             </a>

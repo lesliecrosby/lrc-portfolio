@@ -78,7 +78,7 @@ class IndexPage extends Component {
                 to={"/projects"}
                 className="button"
               >
-                View Recent Projects
+                View Featured Projects
               </Link>
             </Bio>
             <div className="card__border">

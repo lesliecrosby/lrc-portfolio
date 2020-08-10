@@ -46,6 +46,10 @@ body {
   }
 }
 
+.mt-1 {
+  margin-top: 1rem;
+}
+
 section.py:last-child {
   padding-top: 1.5rem;
 
@@ -65,15 +69,16 @@ section.py:last-child {
 }
 
 .projects-list {
-  article:nth-of-type(3n + 1) {
+  article:nth-of-type(2n + 1) {
     background-color: $coral;
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
-        background-color: rgba($darkcoral, 0.9);
+        // background-color: rgba($darkcoral, 0.9);
+        background-color: rgba(214, 103, 78, 0.9);
       }
     }
   }
-  article:nth-of-type(3n + 2) {
+  article:nth-of-type(2n + 2) {
     background-color: $lightsage;
     section:nth-of-type(2) {
       @media (min-width: $mobile) {
@@ -81,14 +86,14 @@ section.py:last-child {
       }
     }
   }
-  article:nth-of-type(3n + 3) {
-    background-color: $dusk;
-    section:nth-of-type(2) {
-      @media (min-width: $mobile) {
-        background-color: rgba($lightdusk, 0.8);
-      }
-    }
-  }
+  // article:nth-of-type(3n + 3) {
+  //   background-color: $dusk;
+  //   section:nth-of-type(2) {
+  //     @media (min-width: $mobile) {
+  //       background-color: rgba($lightdusk, 0.8);
+  //     }
+  //   }
+  // }
 }
 
 .project-meta {

@@ -103,6 +103,7 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1.25rem; // 20px
+  // max-width: 76ch;
 
   @media (max-width: $mobile) {
     hyphens: auto;

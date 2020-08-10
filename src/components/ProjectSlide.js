@@ -123,6 +123,10 @@ const ProjectInfo = styled.section`
     padding: 2rem 10% 2rem 12.5%;
     display: flex;
     z-index: 1;
+
+    p {
+      font-size: 1.25rem;
+    }
   }
 `
 
@@ -138,6 +142,9 @@ const Tags = styled.div`
   }
   h3:last-child::after {
     display: none;
+  }
+  h3.tags__heading::after {
+    content: ':';
   }
 `
 
@@ -171,6 +178,7 @@ class ProjectSlide extends Component {
           </h2>
           <div>{ parse(this.props.description) }</div>
           <Tags>
+            <h3 className="tags__heading">Tech Used</h3>
             {this.props.tags.map((tag, id) => (
               <h3 key={id}>{tag.name}</h3>
             ))}

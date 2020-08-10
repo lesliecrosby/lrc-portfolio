@@ -28,6 +28,11 @@ const ArticleContent = styled.article`
       margin: 6rem auto;
     }
   }
+  figure:first-of-type img {
+    @media (min-width: ${breakpoints.desktop}) {
+      margin: 2rem auto 6rem;
+    }
+  }
   code {
     background: rgba(130, 197, 173, 0.3);
     border: none;

@@ -182,6 +182,7 @@ class Header extends Component {
             <img
               src={ logo }
               alt={ this.props.siteTitle }
+              width="176"
             />
 
           </LogoLink>
