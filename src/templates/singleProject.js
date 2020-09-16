@@ -94,7 +94,7 @@ class SingleProject extends Component {
             to={"/projects"}
             className="button button--alt"
           >
-            Back to Recent Projects
+            Back to Featured Projects
           </Link>
         </section>
 
