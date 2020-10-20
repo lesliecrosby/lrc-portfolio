@@ -42,7 +42,7 @@ const Credit = styled.div`
   font-size: 0.75rem;
 `
 
-const Footer = ({ siteTitle }) => (
+const Footer = () => (
   <SiteFooter>
     <FooterInner className="container">
       <SocialsList>

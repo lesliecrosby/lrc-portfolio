@@ -11,13 +11,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,11 +25,20 @@ module.exports = {
         path: `${__dirname}/src/fonts`,
       },
     },
+    // {
+    //   resolve: 'gatsby-source-wpgraphql-images',
+    //   options: {
+    //     wordPressUrl: `${process.env.SITE_URL}/`,
+    //     uploadsUrl: `${process.env.SITE_URL}/graphql`,
+    //     processPostTypes: ["Page", "Post", "Project"],
+    //     graphqlTypeName: 'WPGraphQL',
+    //   }
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: "gatsby-plugin-sass",
+      resolve: `gatsby-plugin-sass`,
       options: {
         useResolveUrlLoader: {
           options: {
@@ -51,23 +60,35 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     baseUrl: process.env.BASE_URL,
+    //     hostingWPCOM: false,
+    //     protocol: process.env.SITE_PROTOCOL,
+    //     useACF: true,
+    //     auth: {
+    //       jwt_user: process.env.JWT_USER,
+    //       jwt_pass: process.env.JWT_PASSWORD,
+    //     },
+    //     verboseOutput: false,
+    //     keepMediaSizes: false,
+    //   },
+    // },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        baseUrl: process.env.BASE_URL,
-        hostingWPCOM: false,
-        protocol: process.env.SITE_PROTOCOL,
-        useACF: true,
-        auth: {
-          jwt_user: process.env.JWT_USER,
-          jwt_pass: process.env.JWT_PASSWORD,
+        url: `${process.env.SITE_URL}/graphql`,
+        verbose: true,
+        type: {
+          MediaItem: {
+            beforeChangeNode: () => {} ,
+          }
         },
-        verboseOutput: false,
-        keepMediaSizes: false,
       },
     },
     {
-      resolve: "gatsby-plugin-robots-txt",
+      resolve: `gatsby-plugin-robots-txt`,
       options: {
         policy: [{ userAgent: "*", disallow: "/" }],
       },

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import parse from "html-react-parser"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import {
@@ -90,13 +90,13 @@ const DesktopBase = styled.img`
   }
 `
 
-const ImageWrap = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-`
+// const ImageWrap = styled.div`
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+// `
 
 const ProjectInfo = styled.section`
   padding: 2rem 7.5%;
@@ -157,12 +157,12 @@ class ProjectSlide extends Component {
             {this.props.children}
 
             <Desktop>
-              <ImageWrap>
+              {/* <ImageWrap>
                 <Img
                   alt={this.props.imageAlt}
                   fluid={this.props.image}
                 />
-              </ImageWrap>
+              </ImageWrap> */}
             </Desktop>
 
             <DesktopBase

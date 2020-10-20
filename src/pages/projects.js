@@ -15,17 +15,17 @@ const Arrow = styled.img`
 `
 class Projects extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      projects: [],
-      areWeInBusiness: false,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     projects: [],
+  //     areWeInBusiness: false,
+  //   };
+  // }
 
-  handleScroll() {
+  // handleScroll() {
 
-  }
+  // }
 
   render() {
     const data = this.props.data
@@ -43,15 +43,24 @@ class Projects extends Component {
         </section>
 
         <TransitionGroup className="projects-list">
-          {data.allWordpressWpProjects.edges.map(({ node }) => (
+          {/* {data.allWordpressWpProjects.edges.map(({ node }) => (
             <ProjectSlide
               title={node.title}
               description={node.excerpt}
               target={`${node.slug}`}
               key={node.id}
               tags={node.tags}
-              image={node.featured_media.localFile.childImageSharp.fluid}
-              imageAlt={node.featured_media.alt_text}
+              // image={node.featured_media.localFile.childImageSharp.fluid}
+              // imageAlt={node.featured_media.alt_text}
+            />
+          ))} */}
+          {data.projects.edges.map(({ project }) => (
+            <ProjectSlide
+              title={project.title}
+              description={project.excerpt}
+              target={`${project.slug}`}
+              key={project.id}
+              tags={project.tags.nodes}
             />
           ))}
         </TransitionGroup>
@@ -82,7 +91,31 @@ export default Projects
 
 export const pageQuery = graphql`
   query {
-    allWordpressWpProjects(sort: { fields: [date], order: DESC }) {
+    # allWordpressWpProjects(sort: { fields: [date], order: DESC }) {
+    #   edges {
+    #     node {
+    #       id
+    #       title
+    #       excerpt
+    #       slug
+    #       tags {
+    #         id
+    #         name
+    #       }
+    #       featured_media {
+    #         alt_text
+    #         localFile {
+    #           childImageSharp {
+    #             fluid(maxWidth: 1024) {
+    #               ...GatsbyImageSharpFluid
+    #             }
+    #           }
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+    projects {
       edges {
         node {
           id
@@ -90,19 +123,16 @@ export const pageQuery = graphql`
           excerpt
           slug
           tags {
-            id
-            name
-          }
-          featured_media {
-            alt_text
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1024) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+            nodes {
+              id
+              name
             }
           }
+          # featuredImage {
+          #   node {
+          #     mediaItemUrl
+          #   }
+          # }
         }
       }
     }

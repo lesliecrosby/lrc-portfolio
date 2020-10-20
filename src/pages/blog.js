@@ -39,7 +39,8 @@ class Blog extends Component {
 
         <section>
           <div className="container">
-            {data.allWordpressPost.edges.map(({ node }) => (
+            {/* {data.allWordpressPost.edges.map(({ node }) => ( */}
+            {data.posts.edges.map(({ node }) => (
               <Post
                 key={node.id}
               >
@@ -68,20 +69,28 @@ export default Blog
 
 export const pageQuery = graphql`
   query {
-    allWordpressPost(sort: { fields: [date], order: DESC }) {
+    # allWordpressPost(sort: { fields: [date], order: DESC }) {
+    #   edges {
+    #     node {
+    #       id
+    #       title
+    #       slug
+    #     }
+    #   }
+    # }
+    posts {
       edges {
         node {
           id
           title
-          excerpt
           slug
         }
       }
     }
-    site {
-      siteMetadata {
-        title
-      }
-    }
+    # site {
+    #   siteMetadata {
+    #     title
+    #   }
+    # }
   }
 `

@@ -237,6 +237,7 @@ class Header extends Component {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  resumeLink: PropTypes.string,
 }
 
 export default Header

@@ -13,7 +13,8 @@ import SEO from "../components/seo"
 
 class SinglePost extends Component {
   render() {
-    const post = this.props.data.wordpressPost
+    // const post = this.props.data.wordpressPost
+    const post = this.props.data.post
     // const comments = this.props.data.allWordpressWpComments
     return (
       <Layout>
@@ -49,18 +50,23 @@ SinglePost.propTypes = {
 export default SinglePost
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
-      wordpress_id
+  query($id: ID!) {
+    # site {
+    #   siteMetadata {
+    #     title
+    #   }
+    # }
+    # wordpressPost(id: { eq: $id }) {
+    #   wordpress_id
+    #   title
+    #   content
+    #   excerpt
+    #   date
+    # }
+    post(id: { id: $id }) {
       title
-      content
       excerpt
-      date
-    }
-    site {
-      siteMetadata {
-        title
-      }
+      content
     }
   }
 `

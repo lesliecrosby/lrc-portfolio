@@ -7,7 +7,8 @@ import SEO from "../components/seo"
 
 class SinglePage extends Component {
   render() {
-    const page = this.props.data.wordpressPage
+    // const page = this.props.data.wordpressPage
+    const page = this.props.data.page
     return (
       <Layout>
         <SEO
@@ -35,27 +36,32 @@ SinglePage.propTypes = {
 export default SinglePage
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+  query($id: ID!) {
+    # site {
+    #   siteMetadata {
+    #     title
+    #   }
+    # }
+    # wordpressPage(id: { eq: $id }) {
+    #   title
+    #   content
+    #   date
+    #   featured_media {
+    #     source_url
+    #     alt_text
+    #     localFile {
+    #       childImageSharp {
+    #         fluid(maxWidth: 804) {
+    #           ...GatsbyImageSharpFluid
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+    page(id: { id: $id }) {
       title
+      excerpt
       content
-      date
-      featured_media {
-        source_url
-        alt_text
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 804) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-      }
     }
   }
 `

@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 // import parse from "html-react-parser"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -39,27 +39,28 @@ const Bio = styled.div`
   }
 `
 
-const Headshot = styled(Img)`
-  flex: 0 0 210px;
-  width: 210px;
-  height: 210px;
+// const Headshot = styled(Img)`
+//   flex: 0 0 210px;
+//   width: 210px;
+//   height: 210px;
 
-  @media (min-width: ${breakpoints.desktop}) {
-    flex: 0 0 300px;
-    width: 300px;
-    height: 300px;
-  }
+//   @media (min-width: ${breakpoints.desktop}) {
+//     flex: 0 0 300px;
+//     width: 300px;
+//     height: 300px;
+//   }
 
-  @media (min-width: ${breakpoints.large}) {
-    flex: 0 0 378px;
-    width: 378px;
-    height: 378px;
-  }
-`
+//   @media (min-width: ${breakpoints.large}) {
+//     flex: 0 0 378px;
+//     width: 378px;
+//     height: 378px;
+//   }
+// `
 
 class IndexPage extends Component {
   render() {
-    const page = this.props.data.wordpressPage
+    // const page = this.props.data.wordpressPage
+    // const page = this.props.data.page
     const site = this.props.data.site
     return (
       <Layout>
@@ -82,10 +83,14 @@ class IndexPage extends Component {
               </Link>
             </Bio>
             <div className="card__border">
-              <Headshot
+              {/* <Headshot
                 alt={ page.featured_media.alt_text }
                 fluid={ page.featured_media.localFile.childImageSharp.fluid }
               />
+              <Headshot
+                alt={ page.featuredImage.node.mediaItemUrl }
+                fluid={ page.featuredImage.node.mediaItemUrl }
+              /> */}
             </div>
           </BioContainer>
         </section>
@@ -113,21 +118,28 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    wordpressPage(title: {eq: "About Me"}) {
-      featured_media {
-        localFile {
-          childImageSharp {
-              fluid(maxWidth: 420) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-        }
-      }
-    }
     site {
       siteMetadata {
         title
         description
+      }
+    }
+    # wordpressPage(title: {eq: "About Me"}) {
+    #   featured_media {
+    #     localFile {
+    #       childImageSharp {
+    #           fluid(maxWidth: 420) {
+    #             ...GatsbyImageSharpFluid
+    #           }
+    #         }
+    #     }
+    #   }
+    # }
+    page(id: "25", idType: DATABASE_ID) {
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
       }
     }
   }

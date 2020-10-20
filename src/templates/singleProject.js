@@ -29,7 +29,8 @@ const Tags = styled.div`
 class SingleProject extends Component {
   render() {
 
-    const project = this.props.data.wordpressWpProjects
+    // const project = this.props.data.wordpressWpProjects
+    const project = this.props.data.project
     const { previous, next } = this.props.pageContext
     return (
       <Layout>
@@ -43,10 +44,14 @@ class SingleProject extends Component {
             <h1 className="page-title">
               {project.title}
             </h1>
-            {project.tags &&
+            {/* {project.tags && */}
+            {project.tags.nodes &&
               <Tags>
                 <h3 className="tags__heading">Tech Used</h3>
-                {project.tags.map(({name}, id) => (
+                {/* {project.tags.map(({name}, id) => (
+                  <h3 key={id}>{name}</h3>
+                ))} */}
+                {project.tags.nodes.map(({name}, id) => (
                   <h3 key={id}>{name}</h3>
                 ))}
               </Tags>
@@ -54,9 +59,19 @@ class SingleProject extends Component {
 
             {parse(project.excerpt)}
 
-            {project.acf.website_link &&
+            {/* {project.acf.website_link &&
               <a
               href={project.acf.website_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button mt-1"
+              >
+              View this project in the wild
+            </a>
+            } */}
+            {project.projects.websiteLink &&
+              <a
+              href={project.projects.websiteLink}
               target="_blank"
               rel="noopener noreferrer"
               className="button mt-1"
@@ -111,24 +126,38 @@ SingleProject.propTypes = {
 export default SingleProject
 
 export const pageQuery = graphql`
-  query ( $id: String! ) {
-    wordpressWpProjects( id: { eq: $id } ) {
-      wordpress_id
+  query ( $id: ID! ) {
+    # site {
+    #   siteMetadata {
+    #     title
+    #   }
+    # }
+    # wordpressWpProjects( id: { eq: $id } ) {
+    #   wordpress_id
+    #   title
+    #   excerpt
+    #   content
+    #   date
+    #   acf {
+    #     website_link
+    #   }
+    #   tags {
+    #     id
+    #     name
+    #   }
+    # }
+    project(id: { id: $id }) {
       title
       excerpt
       content
-      date
-      acf {
-        website_link
+      projects {
+        websiteLink
       }
       tags {
-        id
-        name
-      }
-    }
-    site {
-      siteMetadata {
-        title
+        nodes {
+          id
+          name
+        }
       }
     }
   }

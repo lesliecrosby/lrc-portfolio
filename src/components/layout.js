@@ -33,14 +33,23 @@ const Layout = ({ children }) => {
           title
         }
       }
-      wordpressPage(title: {eq: "Experience"}) {
-        acf {
+      # wordpressPage(title: {eq: "Experience"}) {
+      #   acf {
+      #     resume {
+      #       url {
+      #         localFile {
+      #           publicURL
+      #         }
+      #       }
+      #     }
+      #   }
+      # }
+      page(id: "46", idType: DATABASE_ID) {
+        title
+        experience {
           resume {
-            url {
-              localFile {
-                publicURL
-              }
-            }
+            id
+            mediaItemUrl
           }
         }
       }
@@ -49,7 +58,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} resumeLink={data.wordpressPage.acf.resume.url.localFile.publicURL}/>
+      {/* <Header siteTitle={data.site.siteMetadata.title} resumeLink={data.wordpressPage.acf.resume.url.localFile.publicURL}/> */}
+      <Header siteTitle={data.site.siteMetadata.title} resumeLink={data.page.experience.resume.mediaItemUrl}/>
       <GlobalStyle />
       <SiteWrap>
         <Main>

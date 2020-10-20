@@ -12,7 +12,9 @@ const JobFacts = styled.div`
 `
 class ExperiencePage extends Component {
   render() {
-    const page = this.props.data.wordpressPage
+    // const page = this.props.data.wordpressPage
+    const page = this.props.data.page
+
     return (
       <Layout>
         <SEO
@@ -55,9 +57,44 @@ class ExperiencePage extends Component {
         </section>
         }
 
+        {page.experience.job &&
+        <section className="experience">
+          {page.experience.job.map((job, i) => (
+            <div className="container" key={i}>
+              <div className="card__border">
+                <div className="card--overlap">
+                  {job.companyUrl &&
+                    <a href={job.companyUrl} target="_blank" rel="noopener noreferrer">
+                      {parse(job.company)}
+                    </a>
+                  }
+
+                  {!job.companyUrl &&
+                    <div>{parse(job.company)}</div>
+                  }
+
+                  <h3>{job.jobTitle}</h3>
+                  <div className="description">{parse(job.description)}</div>
+                  <JobFacts>
+                    <h4 className="h3">{job.dates}</h4>
+                    <h4 className="h3">{job.location}</h4>
+                  </JobFacts>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+        }
+
         <section className="cta">
-          <a
+          {/* <a
             href={page.acf.resume.url.localFile.publicURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button"
+          > */}
+          <a
+            href={page.experience.resume.mediaItemUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="button"
@@ -79,32 +116,49 @@ ExperiencePage.propTypes = {
 export default ExperiencePage
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+  query($id: ID!) {
+    # site {
+    #   siteMetadata {
+    #     title
+    #   }
+    # }
+    # wordpressPage(id: { eq: $id }) {
+    #   title
+    #   content
+    #   date
+    #   acf {
+    #     job {
+    #       location
+    #       company
+    #       company_url
+    #       dates
+    #       description
+    #       job_title
+    #     }
+    #     resume {
+    #       url {
+    #         localFile {
+    #           publicURL
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+    page(id: { id: $id }) {
       title
-      content
-      date
-      acf {
+      experience {
         job {
+          fieldGroupName
           location
           company
-          company_url
+          companyUrl
           dates
           description
-          job_title
+          jobTitle
         }
         resume {
-          url {
-            localFile {
-              publicURL
-            }
-          }
+          mediaItemUrl
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
       }
     }
   }
